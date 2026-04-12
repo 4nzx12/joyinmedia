@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joyin Media • Kaloor, Kochi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Video Background -->
+  <video class="video-bg" id="videoBg" autoplay muted loop playsinline>
+    <source id="videoSrc" src="https://res.cloudinary.com/debkiwitn/video/upload/v1775921496/lightmode_background_vtahka.mp4" type="video/mp4">
+  </video>
+  <div class="video-overlay"></div>
+
+  <!-- FLOATING NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="#work" class="nav-link">Work</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#contact" class="nav-link">Contact</a>
+    <div class="nav-divider"></div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <i class="fas fa-sun toggle-sun"></i>
+      <span class="toggle-thumb"></span>
+      <i class="fas fa-moon toggle-moon"></i>
+    </button>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <!-- ═══════════ HERO ═══════════ -->
+    <header class="hero">
+      <img
+        class="hero-logo"
+        src="https://res.cloudinary.com/debkiwitn/image/upload/v1775929221/JOYIN_MEDIA_LOGO_ciostj.png"
+        alt="Joyin Media"
+      >
+      <h1 class="hero-title">
+        Stories that <em>move.</em><br>Visuals that inspire.
+      </h1>
+      <div class="hero-eyebrow">
+        <i class="fas fa-map-pin"></i>&nbsp; Kaloor, Kochi &nbsp;·&nbsp; Est. 2024
+      </div>
+      <p class="hero-sub">
+        A media production house delivering photography, video, and design with craft and intention — built for brands that demand more.
+      </p>
+      <div class="hero-cta">
+        <a href="#work" class="btn-primary">Explore Our Work <i class="fas fa-arrow-down"></i></a>
+        <a href="#contact" class="btn-ghost">Get In Touch</a>
+      </div>
+    </header>
+
+    <!-- ═══════════ PORTFOLIO ═══════════ -->
+    <div id="work">
+
+      <!-- Photography -->
+      <section class="portfolio-section">
+        <div class="portfolio-header">
+          <h2 class="portfolio-title">Photography</h2>
+          <div class="portfolio-arrows">
+            <button class="arrow-btn prev-btn" aria-label="Previous">
+              <i class="fas fa-arrow-left"></i>
+            </button>
+            <button class="arrow-btn next-btn" aria-label="Next">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="portfolio-track-wrap">
+          <div class="portfolio-track">
+            <div class="portfolio-card" data-cat="photo-product">
+              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Product Photography" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-label">Product Photography</span>
+                <span class="card-icon"><i class="fas fa-arrow-right"></i></span>
+              </div>
+            </div>
+            <div class="portfolio-card" data-cat="photo-model">
+              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Model Shoot" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-label">Model Shoot</span>
+                <span class="card-icon"><i class="fas fa-arrow-right"></i></span>
+              </div>
+            </div>
+            <div class="portfolio-card" data-cat="photo-food">
+              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Food & Beverage" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-label">Food &amp; Beverage</span>
+                <span class="card-icon"><i class="fas fa-arrow-right"></i></span>
+              </div>
+            </div>
+            <div class="portfolio-card" data-cat="photo-event">
+              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Corporate & Events" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-label">Corporate &amp; Events</span>
+                <span class="card-icon"><i class="fas fa-arrow-right"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-dots" id="dots-photography"></div>
+      </section>
+
+      <!-- Video Work -->
+      <section class="portfolio-section">
+        <div class="portfolio-header">
+          <h2 class="portfolio-title">Video Work</h2>
+          <div class="portfolio-arrows">
+            <button class="arrow-btn prev-btn" aria-label="Previous">
+              <i class="fas fa-arrow-left"></i>
+            </button>
+            <button class="arrow-btn next-btn" aria-label="Next">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="portfolio-track-wrap">
+          <div class="portfolio-track">
+            <div class="portfolio-card video-card" data-cat="video-product">
+              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Product Video" loading="lazy">
+              <div class="video-play-badge"><i class="fas fa-play"></i></div>
+              <div class="card-overlay">
+                <span class="card-label">Product Video</span>
+                <span class="card-icon"><i class="fas fa-play"></i></span>
+              </div>
+            </div>
+            <div class="portfolio-card video-card" data-cat="video-model">
+              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Fashion Film" loading="lazy">
+              <div class="video-play-badge"><i class="fas fa-play"></i></div>
+              <div class="card-overlay">
+                <span class="card-label">Model / Fashion Film</span>
+                <span class="card-icon"><i class="fas fa-play"></i></span>
+              </div>
+            </div>
+            <div class="portfolio-card video-card" data-cat="video-commercial">
+              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Commercial & Ad" loading="lazy">
+              <div class="video-play-badge"><i class="fas fa-play"></i></div>
+              <div class="card-overlay">
+                <span class="card-label">Commercial &amp; Ad</span>
+                <span class="card-icon"><i class="fas fa-play"></i></span>
+              </div>
+            </div>
+            <div class="portfolio-card video-card" data-cat="video-brand">
+              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Brand Film" loading="lazy">
+              <div class="video-play-badge"><i class="fas fa-play"></i></div>
+              <div class="card-overlay">
+                <span class="card-label">Brand Films</span>
+                <span class="card-icon"><i class="fas fa-play"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-dots" id="dots-video"></div>
+      </section>
+
+      <!-- Designing -->
+      <section class="portfolio-section">
+        <div class="portfolio-header">
+          <h2 class="portfolio-title">Designing</h2>
+          <div class="portfolio-arrows">
+            <button class="arrow-btn prev-btn" aria-label="Previous">
+              <i class="fas fa-arrow-left"></i>
+            </button>
+            <button class="arrow-btn next-btn" aria-label="Next">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="portfolio-track-wrap">
+          <div class="portfolio-track">
+            <div class="portfolio-card" data-cat="design-brand">
+              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Brand Identity" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-label">Brand Identity</span>
+                <span class="card-icon"><i class="fas fa-arrow-right"></i></span>
+              </div>
+            </div>
+            <div class="portfolio-card" data-cat="design-social">
+              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Social Media Creatives" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-label">Social Media Creatives</span>
+                <span class="card-icon"><i class="fas fa-arrow-right"></i></span>
+              </div>
+            </div>
+            <div class="portfolio-card" data-cat="design-print">
+              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Print & Packaging" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-label">Print &amp; Packaging</span>
+                <span class="card-icon"><i class="fas fa-arrow-right"></i></span>
+              </div>
+            </div>
+            <div class="portfolio-card" data-cat="design-motion">
+              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Motion Graphics" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-label">Motion Graphics</span>
+                <span class="card-icon"><i class="fas fa-arrow-right"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-dots" id="dots-design"></div>
+      </section>
+
+    </div><!-- /#work -->
+
+    <!-- ═══════════ ABOUT ═══════════ -->
+    <section id="about" class="about-section">
+
+      <div class="about-intro fade-in">
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-title">About Joyin Media</h2>
+        <p>Founded in 2024 in the heart of Kochi, Joyin Media is a full-service media production house operating out of Kaloor. We build visual narratives for brands that refuse to be ordinary — through cinematic video, editorial photography, and sharp design. No weddings. No compromises. Just precise, purposeful commercial storytelling crafted by a team that lives for the craft.</p>
+      </div>
+
+      <!-- Team -->
+      <div class="team-wrap fade-in">
+        <div class="section-label" style="margin-bottom:2.5rem;">The Team</div>
+
+        <!-- Row 1: Founder -->
+        <div class="team-row row-1">
+          <div class="team-member">
+            <div class="team-img-wrap">
+              <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1775925908/reyes_azpzjy.png" alt="Rayes Nizan">
+              <div class="team-name-tag">
+                <span class="t-name">Rayes Nizan</span>
+                <span class="t-role">Founder</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Anas + Hiban -->
+        <div class="team-row row-2">
+          <div class="team-member">
+            <div class="team-img-wrap">
+              <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1775925906/anas_ihvayr.png" alt="Anas Asif">
+              <div class="team-name-tag">
+                <span class="t-name">Anas Asif</span>
+                <span class="t-role">Head Video Editor / Graphic Designer</span>
+              </div>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="team-img-wrap">
+              <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1775925907/hiban_vzy2uy.png" alt="Hiban Ali">
+              <div class="team-name-tag">
+                <span class="t-name">Hiban Ali</span>
+                <span class="t-role">Head Video Editor</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: Nouzi + Rizwan + Shibin -->
+        <div class="team-row row-3">
+          <div class="team-member">
+            <div class="team-img-wrap">
+              <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1775925908/nouseef_jdggbn.png" alt="Nouzi">
+              <div class="team-name-tag">
+                <span class="t-name">Nouzi</span>
+                <span class="t-role">Director of Photography</span>
+              </div>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="team-img-wrap">
+              <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1775925908/riswan_orcp09.png" alt="Rizwan">
+              <div class="team-name-tag">
+                <span class="t-name">Rizwan</span>
+                <span class="t-role">Content Creation</span>
+              </div>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="team-img-wrap">
+              <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1775925908/shibin_g6kmco.png" alt="Shibin">
+              <div class="team-name-tag">
+                <span class="t-name">Shibin</span>
+                <span class="t-role">Content &amp; Script</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Process -->
+      <div class="process-wrap fade-in">
+        <div class="section-label" style="margin-bottom:1rem;">The Process</div>
+        <h3 class="process-heading">How every project comes to life</h3>
+        <p class="process-sub">Our editors, photographers, and storytellers operate as one synchronised unit. Every frame is the result of relentless collaboration — from the first brief to the final export. The team brings deep expertise in commercial film and design, and a shared obsession with work that feels alive.</p>
+
+        <div class="journey">
+          <div class="journey-step">
+            <i class="fas fa-comments journey-icon"></i>
+            <span class="journey-label">Brief &amp; Discovery</span>
+          </div>
+          <span class="journey-arrow">→</span>
+          <div class="journey-step">
+            <i class="fas fa-feather-alt journey-icon"></i>
+            <span class="journey-label">Creative Concepting</span>
+          </div>
+          <span class="journey-arrow">→</span>
+          <div class="journey-step">
+            <i class="fas fa-camera journey-icon"></i>
+            <span class="journey-label">Production Day</span>
+          </div>
+          <span class="journey-arrow">→</span>
+          <div class="journey-step">
+            <i class="fas fa-magic journey-icon"></i>
+            <span class="journey-label">Post-Production</span>
+          </div>
+          <span class="journey-arrow">→</span>
+          <div class="journey-step">
+            <i class="fas fa-eye journey-icon"></i>
+            <span class="journey-label">Review &amp; Refinement</span>
+          </div>
+          <span class="journey-arrow">→</span>
+          <div class="journey-step">
+            <i class="fas fa-paper-plane journey-icon"></i>
+            <span class="journey-label">Final Delivery</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ═══════════ CONTACT ═══════════ -->
+    <section id="contact" class="contact-section fade-in">
+      <div class="section-label">Let's Work Together</div>
+      <h2 class="section-title">Get in touch</h2>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fas fa-envelope-open-text"></i></div>
+          <h3>Email</h3>
+          <a href="mailto:joyinmediahouse@gmail.com">joyinmediahouse@gmail.com</a>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+          <h3>Call / WhatsApp</h3>
+          <p>+91 98950 12345</p>
+          <p class="contact-note">Mon – Sat &nbsp;·&nbsp; 9 am – 7 pm</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fas fa-map-marked-alt"></i></div>
+          <h3>Studio</h3>
+          <p>Joyin Media House<br>Kaloor, Kochi<br>Kerala 682 017</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <img
+        src="https://res.cloudinary.com/debkiwitn/image/upload/v1775929221/JOYIN_MEDIA_LOGO_ciostj.png"
+        alt="Joyin Media"
+        class="footer-logo"
+      >
+      <p>© 2025 Joyin Media — Kaloor, Kochi.</p>
+    </footer>
+
+  </main>
+
+  <!-- ═══════════ GALLERY MODAL ═══════════ -->
+  <div class="modal-overlay" id="galleryModal">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h3 id="galleryTitle">Gallery</h3>
+        <button class="modal-close" id="modalClose">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
