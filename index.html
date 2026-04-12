@@ -6,7 +6,8 @@
   <title>Joyin Media • Kaloor, Kochi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -24,8 +25,12 @@
 
   <!-- FLOATING NAVBAR -->
   <nav class="navbar" id="navbar">
-    <a href="#work" class="nav-link">Work</a>
+    <a href="#services" class="nav-logo" aria-label="Joyin Media logo">
+      <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1775929221/JOYIN_MEDIA_LOGO_ciostj.png" alt="Joyin Media logo">
+    </a>
+    <a href="#services" class="nav-link">Work</a>
     <a href="#about" class="nav-link">About</a>
+    <a href="#faq" class="nav-link">FAQ</a>
     <a href="#contact" class="nav-link">Contact</a>
     <div class="nav-divider"></div>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -35,353 +40,372 @@
     </button>
   </nav>
 
-  <!-- MAIN CONTENT -->
   <main class="content">
 
-    <!-- ═══════════ HERO ═══════════ -->
+    <!-- HERO -->
     <header class="hero">
-      <img
-        class="hero-logo"
-        src="https://res.cloudinary.com/debkiwitn/image/upload/v1775929221/JOYIN_MEDIA_LOGO_ciostj.png"
-        alt="Joyin Media"
-      >
-      <h1 class="hero-title">
-        Stories that <em>move.</em><br>Visuals that inspire.
-      </h1>
+      <img class="hero-logo" src="https://res.cloudinary.com/debkiwitn/image/upload/v1775929221/JOYIN_MEDIA_LOGO_ciostj.png" alt="Joyin Media">
+      <h1 class="hero-title">Where Your Brand Takes <em>flight</em></h1>
       <div class="hero-eyebrow">
         <i class="fas fa-map-pin"></i>&nbsp; Kaloor, Kochi &nbsp;·&nbsp; Est. 2024
       </div>
-      <p class="hero-sub">
-        A media production house delivering photography, video, and design with craft and intention — built for brands that demand more.
-      </p>
+      <p class="hero-sub">A media production house delivering photography, video, and design with craft and intention — built for brands that demand more.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="stat-num">2+</span><span class="stat-label">Years</span></div>
+        <div class="stat-sep"></div>
+        <div class="hero-stat"><span class="stat-num">100+</span><span class="stat-label">Projects</span></div>
+        <div class="stat-sep"></div>
+        <div class="hero-stat"><span class="stat-num">22</span><span class="stat-label">Staff</span></div>
+      </div>
       <div class="hero-cta">
-        <a href="#work" class="btn-primary">Explore Our Work <i class="fas fa-arrow-down"></i></a>
+        <a href="#services" class="btn-primary">Explore Our Work <i class="fas fa-arrow-down"></i></a>
         <a href="#contact" class="btn-ghost">Get In Touch</a>
       </div>
     </header>
 
-    <!-- ═══════════ PORTFOLIO ═══════════ -->
-    <div id="work">
-
-      <!-- Photography -->
-      <section class="portfolio-section">
-        <div class="portfolio-header">
-          <h2 class="portfolio-title">Photography</h2>
-          <div class="portfolio-arrows">
-            <button class="arrow-btn prev-btn" aria-label="Previous">
-              <i class="fas fa-arrow-left"></i>
-            </button>
-            <button class="arrow-btn next-btn" aria-label="Next">
-              <i class="fas fa-arrow-right"></i>
-            </button>
+    <!-- TRUST BAR -->
+    <div class="trust-section">
+      <p class="trust-label">Trusted by brands across Kerala &amp; beyond</p>
+      <div class="trust-outer">
+        <div class="trust-track">
+          <div class="trust-inner" id="trustInner">
+            <span class="t-logo"><i class="fab fa-google"></i><span>Google</span></span>
+            <span class="t-logo"><i class="fab fa-facebook"></i><span>Facebook</span></span>
+            <span class="t-logo"><i class="fab fa-instagram"></i><span>Instagram</span></span>
+            <span class="t-logo"><i class="fab fa-amazon"></i><span>Amazon</span></span>
+            <span class="t-logo"><i class="fab fa-spotify"></i><span>Spotify</span></span>
+            <span class="t-logo"><i class="fab fa-youtube"></i><span>YouTube</span></span>
+            <span class="t-logo"><i class="fab fa-apple"></i><span>Apple</span></span>
+            <span class="t-logo"><i class="fab fa-linkedin"></i><span>LinkedIn</span></span>
+            <span class="t-logo"><i class="fab fa-shopify"></i><span>Shopify</span></span>
+            <span class="t-logo"><i class="fab fa-airbnb"></i><span>Airbnb</span></span>
+            <!-- Duplicated for seamless loop -->
+            <span class="t-logo"><i class="fab fa-google"></i><span>Google</span></span>
+            <span class="t-logo"><i class="fab fa-facebook"></i><span>Facebook</span></span>
+            <span class="t-logo"><i class="fab fa-instagram"></i><span>Instagram</span></span>
+            <span class="t-logo"><i class="fab fa-amazon"></i><span>Amazon</span></span>
+            <span class="t-logo"><i class="fab fa-spotify"></i><span>Spotify</span></span>
+            <span class="t-logo"><i class="fab fa-youtube"></i><span>YouTube</span></span>
+            <span class="t-logo"><i class="fab fa-apple"></i><span>Apple</span></span>
+            <span class="t-logo"><i class="fab fa-linkedin"></i><span>LinkedIn</span></span>
+            <span class="t-logo"><i class="fab fa-shopify"></i><span>Shopify</span></span>
+            <span class="t-logo"><i class="fab fa-airbnb"></i><span>Airbnb</span></span>
           </div>
         </div>
-        <div class="portfolio-track-wrap">
-          <div class="portfolio-track">
-            <div class="portfolio-card" data-cat="photo-product">
-              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Product Photography" loading="lazy">
-              <div class="card-overlay">
-                <span class="card-label">Product Photography</span>
-                <span class="card-icon"><i class="fas fa-arrow-right"></i></span>
-              </div>
+      </div>
+    </div>
+
+    <!-- PROCESS BOXES -->
+    <section class="process-section fade-in" id="process">
+      <div class="section-label">The Process</div>
+      <h2 class="section-title">How we work</h2>
+      <div class="process-boxes">
+        <img class="process-box light-box" src="https://res.cloudinary.com/debkiwitn/image/upload/v1776003286/box_1_light_mlde61.png" alt="Step 1">
+        <img class="process-box light-box" src="https://res.cloudinary.com/debkiwitn/image/upload/v1776003283/box_2_light_mpktra.png" alt="Step 2">
+        <img class="process-box light-box" src="https://res.cloudinary.com/debkiwitn/image/upload/v1776003284/box_3_light_i1corg.png" alt="Step 3">
+        <img class="process-box dark-box" src="https://res.cloudinary.com/debkiwitn/image/upload/v1776003285/box_1_black_slltk9.png" alt="Step 1">
+        <img class="process-box dark-box" src="https://res.cloudinary.com/debkiwitn/image/upload/v1776003285/box_2_black_l99oxn.png" alt="Step 2">
+        <img class="process-box dark-box" src="https://res.cloudinary.com/debkiwitn/image/upload/v1776003286/box_3_black_wjsm4s.png" alt="Step 3">
+      </div>
+    </section>
+
+    <!-- OUR SERVICES -->
+    <section class="services-section fade-in" id="services">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-layout">
+        <p class="services-intro">We're not here to flood your feed — we're here to make every frame count. One well-crafted campaign that actually converts is worth more than a hundred forgettable posts. Quality over clutter. Always.</p>
+        <div class="services-grid">
+          <div class="service-item"><span class="service-dot"></span><span>Advertising Production</span></div>
+          <div class="service-item"><span class="service-dot"></span><span>Storytelling &amp; Brand Films</span></div>
+          <div class="service-item"><span class="service-dot"></span><span>Social Media Marketing</span></div>
+          <div class="service-item"><span class="service-dot"></span><span>Analytics &amp; Performance Reporting</span></div>
+          <div class="service-item"><span class="service-dot"></span><span>Product Photography</span></div>
+          <div class="service-item"><span class="service-dot"></span><span>Commercial Videography</span></div>
+          <div class="service-item"><span class="service-dot"></span><span>Brand Identity &amp; Graphic Design</span></div>
+          <div class="service-item"><span class="service-dot"></span><span>Content Strategy &amp; Scripting</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED WORK — 3D CENTER-STAGE CAROUSEL -->
+    <section class="featured-section fade-in" id="featured">
+      <div class="section-label">Selected Projects</div>
+      <h2 class="section-title">Featured Work</h2>
+
+      <div class="cs-carousel" id="csCarousel">
+        <div class="cs-viewport">
+          <div class="cs-stage" id="csStage">
+
+            <div class="cs-card" data-type="image" data-title="Editorial Shoot" data-sub="Fashion Photography">
+              <div class="cs-media"><img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Editorial Shoot" draggable="false"></div>
+              <div class="cs-caption"><h4>Editorial Shoot</h4><p>Fashion Photography</p></div>
             </div>
-            <div class="portfolio-card" data-cat="photo-model">
-              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Model Shoot" loading="lazy">
-              <div class="card-overlay">
-                <span class="card-label">Model Shoot</span>
-                <span class="card-icon"><i class="fas fa-arrow-right"></i></span>
-              </div>
+
+            <div class="cs-card" data-type="image" data-title="Brand Campaign" data-sub="Commercial Photography">
+              <div class="cs-media"><img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/4_copy_hsscjn.jpg" alt="Brand Campaign" draggable="false"></div>
+              <div class="cs-caption"><h4>Brand Campaign</h4><p>Commercial Photography</p></div>
             </div>
-            <div class="portfolio-card" data-cat="photo-food">
-              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Food & Beverage" loading="lazy">
-              <div class="card-overlay">
-                <span class="card-label">Food &amp; Beverage</span>
-                <span class="card-icon"><i class="fas fa-arrow-right"></i></span>
-              </div>
+
+            <div class="cs-card" data-type="image" data-title="Product Story" data-sub="Product Photography">
+              <div class="cs-media"><img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/6_copy_huvuka.jpg" alt="Product Story" draggable="false"></div>
+              <div class="cs-caption"><h4>Product Story</h4><p>Product Photography</p></div>
             </div>
-            <div class="portfolio-card" data-cat="photo-event">
-              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Corporate & Events" loading="lazy">
-              <div class="card-overlay">
-                <span class="card-label">Corporate &amp; Events</span>
-                <span class="card-icon"><i class="fas fa-arrow-right"></i></span>
-              </div>
+
+            <div class="cs-card" data-type="image" data-title="Model Series" data-sub="Model Shoot">
+              <div class="cs-media"><img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775820668/neyshu_first_916_copy_ykhgtz.jpg" alt="Model Series" draggable="false"></div>
+              <div class="cs-caption"><h4>Model Series</h4><p>Model Shoot</p></div>
             </div>
+
+            <div class="cs-card" data-type="image" data-title="Lifestyle Frame" data-sub="Commercial Photography">
+              <div class="cs-media"><img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775820910/e49b003f-5be5-4eba-b944-2f864455efa2_lwyfi7.jpg" alt="Lifestyle Frame" draggable="false"></div>
+              <div class="cs-caption"><h4>Lifestyle Frame</h4><p>Commercial Photography</p></div>
+            </div>
+
+            <div class="cs-card" data-type="video" data-title="Fashion Film" data-sub="Short Form Video">
+              <div class="cs-media">
+                <video class="cs-vid" muted playsinline loop preload="metadata">
+                  <source src="https://res.cloudinary.com/dk1tywinm/video/upload/q_auto/f_auto/v1775787747/girl_vrbzrs.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="cs-caption"><h4>Fashion Film</h4><p>Short Form Video</p></div>
+            </div>
+
+            <div class="cs-card" data-type="video" data-title="Brand Skit" data-sub="Social Media Content">
+              <div class="cs-media">
+                <video class="cs-vid" muted playsinline loop preload="metadata">
+                  <source src="https://res.cloudinary.com/dk1tywinm/video/upload/q_auto/f_auto/v1775788557/skit_video_nsfq9h.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="cs-caption"><h4>Brand Skit</h4><p>Social Media Content</p></div>
+            </div>
+
           </div>
         </div>
-        <div class="carousel-dots" id="dots-photography"></div>
-      </section>
+        <button class="cs-arrow cs-prev" id="csPrev"><i class="fas fa-chevron-left"></i></button>
+        <button class="cs-arrow cs-next" id="csNext"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="cs-dots" id="csDots"></div>
+    </section>
 
-      <!-- Video Work -->
-      <section class="portfolio-section">
-        <div class="portfolio-header">
-          <h2 class="portfolio-title">Video Work</h2>
-          <div class="portfolio-arrows">
-            <button class="arrow-btn prev-btn" aria-label="Previous">
-              <i class="fas fa-arrow-left"></i>
-            </button>
-            <button class="arrow-btn next-btn" aria-label="Next">
-              <i class="fas fa-arrow-right"></i>
-            </button>
-          </div>
-        </div>
-        <div class="portfolio-track-wrap">
-          <div class="portfolio-track">
-            <div class="portfolio-card video-card" data-cat="video-product">
-              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Product Video" loading="lazy">
-              <div class="video-play-badge"><i class="fas fa-play"></i></div>
-              <div class="card-overlay">
-                <span class="card-label">Product Video</span>
-                <span class="card-icon"><i class="fas fa-play"></i></span>
-              </div>
-            </div>
-            <div class="portfolio-card video-card" data-cat="video-model">
-              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Fashion Film" loading="lazy">
-              <div class="video-play-badge"><i class="fas fa-play"></i></div>
-              <div class="card-overlay">
-                <span class="card-label">Model / Fashion Film</span>
-                <span class="card-icon"><i class="fas fa-play"></i></span>
-              </div>
-            </div>
-            <div class="portfolio-card video-card" data-cat="video-commercial">
-              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Commercial & Ad" loading="lazy">
-              <div class="video-play-badge"><i class="fas fa-play"></i></div>
-              <div class="card-overlay">
-                <span class="card-label">Commercial &amp; Ad</span>
-                <span class="card-icon"><i class="fas fa-play"></i></span>
-              </div>
-            </div>
-            <div class="portfolio-card video-card" data-cat="video-brand">
-              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Brand Film" loading="lazy">
-              <div class="video-play-badge"><i class="fas fa-play"></i></div>
-              <div class="card-overlay">
-                <span class="card-label">Brand Films</span>
-                <span class="card-icon"><i class="fas fa-play"></i></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-dots" id="dots-video"></div>
-      </section>
-
-      <!-- Designing -->
-      <section class="portfolio-section">
-        <div class="portfolio-header">
-          <h2 class="portfolio-title">Designing</h2>
-          <div class="portfolio-arrows">
-            <button class="arrow-btn prev-btn" aria-label="Previous">
-              <i class="fas fa-arrow-left"></i>
-            </button>
-            <button class="arrow-btn next-btn" aria-label="Next">
-              <i class="fas fa-arrow-right"></i>
-            </button>
-          </div>
-        </div>
-        <div class="portfolio-track-wrap">
-          <div class="portfolio-track">
-            <div class="portfolio-card" data-cat="design-brand">
-              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Brand Identity" loading="lazy">
-              <div class="card-overlay">
-                <span class="card-label">Brand Identity</span>
-                <span class="card-icon"><i class="fas fa-arrow-right"></i></span>
-              </div>
-            </div>
-            <div class="portfolio-card" data-cat="design-social">
-              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Social Media Creatives" loading="lazy">
-              <div class="card-overlay">
-                <span class="card-label">Social Media Creatives</span>
-                <span class="card-icon"><i class="fas fa-arrow-right"></i></span>
-              </div>
-            </div>
-            <div class="portfolio-card" data-cat="design-print">
-              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Print & Packaging" loading="lazy">
-              <div class="card-overlay">
-                <span class="card-label">Print &amp; Packaging</span>
-                <span class="card-icon"><i class="fas fa-arrow-right"></i></span>
-              </div>
-            </div>
-            <div class="portfolio-card" data-cat="design-motion">
-              <img src="https://res.cloudinary.com/dk1tywinm/image/upload/q_auto/f_auto/v1775906909/1_copy_vttehy.jpg" alt="Motion Graphics" loading="lazy">
-              <div class="card-overlay">
-                <span class="card-label">Motion Graphics</span>
-                <span class="card-icon"><i class="fas fa-arrow-right"></i></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-dots" id="dots-design"></div>
-      </section>
-
-    </div><!-- /#work -->
-
-    <!-- ═══════════ ABOUT ═══════════ -->
-    <section id="about" class="about-section">
-
-      <div class="about-intro fade-in">
-        <div class="section-label">Who We Are</div>
-        <h2 class="section-title">About Joyin Media</h2>
+    <!-- ABOUT -->
+    <section class="about-section fade-in" id="about">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">About Joyin Media</h2>
+      <div class="about-intro">
         <p>Founded in 2024 in the heart of Kochi, Joyin Media is a full-service media production house operating out of Kaloor. We build visual narratives for brands that refuse to be ordinary — through cinematic video, editorial photography, and sharp design. No weddings. No compromises. Just precise, purposeful commercial storytelling crafted by a team that lives for the craft.</p>
       </div>
 
-      <!-- Team -->
-      <div class="team-wrap fade-in">
+      <div class="team-wrap">
         <div class="section-label" style="margin-bottom:2.5rem;">The Team</div>
 
-        <!-- Row 1: Founder -->
         <div class="team-row row-1">
           <div class="team-member">
             <div class="team-img-wrap">
               <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1775925908/reyes_azpzjy.png" alt="Rayes Nizan">
-              <div class="team-name-tag">
-                <span class="t-name">Rayes Nizan</span>
-                <span class="t-role">Founder</span>
-              </div>
+              <div class="team-name-tag"><span class="t-name">Rayes Nizan</span><span class="t-role">Founder</span></div>
             </div>
           </div>
         </div>
 
-        <!-- Row 2: Anas + Hiban -->
         <div class="team-row row-2">
           <div class="team-member">
             <div class="team-img-wrap">
               <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1775925906/anas_ihvayr.png" alt="Anas Asif">
-              <div class="team-name-tag">
-                <span class="t-name">Anas Asif</span>
-                <span class="t-role">Head Video Editor / Graphic Designer</span>
-              </div>
+              <div class="team-name-tag"><span class="t-name">Anas Asif</span><span class="t-role">Head Of Video Editing & Creative Media</span></div>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="team-img-wrap">
+              <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1776003279/binshad_altm0u.png" alt="Binshad">
+              <div class="team-name-tag"><span class="t-name">Binshad</span><span class="t-role">Head Manager</span></div>
             </div>
           </div>
           <div class="team-member">
             <div class="team-img-wrap">
               <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1775925907/hiban_vzy2uy.png" alt="Hiban Ali">
-              <div class="team-name-tag">
-                <span class="t-name">Hiban Ali</span>
-                <span class="t-role">Head Video Editor</span>
-              </div>
+              <div class="team-name-tag"><span class="t-name">Hiban Ali</span><span class="t-role">Head Of Video Editing and Direction</span></div>
             </div>
           </div>
         </div>
 
-        <!-- Row 3: Nouzi + Rizwan + Shibin -->
         <div class="team-row row-3">
           <div class="team-member">
             <div class="team-img-wrap">
               <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1775925908/nouseef_jdggbn.png" alt="Nouzi">
-              <div class="team-name-tag">
-                <span class="t-name">Nouzi</span>
-                <span class="t-role">Director of Photography</span>
-              </div>
+              <div class="team-name-tag"><span class="t-name">Nouzi</span><span class="t-role">Director of Photography</span></div>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="team-img-wrap">
+              <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1776011786/remees_kxzexv.png" alt="Remees">
+              <div class="team-name-tag"><span class="t-name">Remees</span><span class="t-role">Videographer</span></div>
             </div>
           </div>
           <div class="team-member">
             <div class="team-img-wrap">
               <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1775925908/riswan_orcp09.png" alt="Rizwan">
-              <div class="team-name-tag">
-                <span class="t-name">Rizwan</span>
-                <span class="t-role">Content Creation</span>
-              </div>
+              <div class="team-name-tag"><span class="t-name">Rizwan</span><span class="t-role">Content Creation</span></div>
             </div>
           </div>
           <div class="team-member">
             <div class="team-img-wrap">
               <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1775925908/shibin_g6kmco.png" alt="Shibin">
-              <div class="team-name-tag">
-                <span class="t-name">Shibin</span>
-                <span class="t-role">Content &amp; Script</span>
-              </div>
+              <div class="team-name-tag"><span class="t-name">Shibin</span><span class="t-role">Content &amp; Script</span></div>
             </div>
           </div>
         </div>
+
       </div>
-
-      <!-- Process -->
-      <div class="process-wrap fade-in">
-        <div class="section-label" style="margin-bottom:1rem;">The Process</div>
-        <h3 class="process-heading">How every project comes to life</h3>
-        <p class="process-sub">Our editors, photographers, and storytellers operate as one synchronised unit. Every frame is the result of relentless collaboration — from the first brief to the final export. The team brings deep expertise in commercial film and design, and a shared obsession with work that feels alive.</p>
-
-        <div class="journey">
-          <div class="journey-step">
-            <i class="fas fa-comments journey-icon"></i>
-            <span class="journey-label">Brief &amp; Discovery</span>
-          </div>
-          <span class="journey-arrow">→</span>
-          <div class="journey-step">
-            <i class="fas fa-feather-alt journey-icon"></i>
-            <span class="journey-label">Creative Concepting</span>
-          </div>
-          <span class="journey-arrow">→</span>
-          <div class="journey-step">
-            <i class="fas fa-camera journey-icon"></i>
-            <span class="journey-label">Production Day</span>
-          </div>
-          <span class="journey-arrow">→</span>
-          <div class="journey-step">
-            <i class="fas fa-magic journey-icon"></i>
-            <span class="journey-label">Post-Production</span>
-          </div>
-          <span class="journey-arrow">→</span>
-          <div class="journey-step">
-            <i class="fas fa-eye journey-icon"></i>
-            <span class="journey-label">Review &amp; Refinement</span>
-          </div>
-          <span class="journey-arrow">→</span>
-          <div class="journey-step">
-            <i class="fas fa-paper-plane journey-icon"></i>
-            <span class="journey-label">Final Delivery</span>
-          </div>
-        </div>
-      </div>
-
     </section>
 
-    <!-- ═══════════ CONTACT ═══════════ -->
-    <section id="contact" class="contact-section fade-in">
+    <!-- FAQ -->
+    <section class="faq-section fade-in" id="faq">
+      <div class="section-label">Got Questions?</div>
+      <h2 class="section-title">FAQ</h2>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q"><span>We're a small brand from Thrissur. Do you work outside Kochi?</span><i class="fas fa-plus faq-icon"></i></button>
+          <div class="faq-a"><p>Absolutely. Our studio is in Kaloor, Kochi — but we've shot across Kerala and beyond. Travel is factored into the project quote upfront. No surprises on the invoice.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q"><span>How long does a project take from brief to final delivery?</span><i class="fas fa-plus faq-icon"></i></button>
+          <div class="faq-a"><p>Most projects are wrapped in 7–14 working days. Larger campaigns with multiple deliverables may take 3–4 weeks. You'll get a clear timeline before we begin — not a vague "we'll see".</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q"><span>Can you handle both photography and video for the same campaign?</span><i class="fas fa-plus faq-icon"></i></button>
+          <div class="faq-a"><p>Yes — and honestly, that's where we're at our best. One team, one brief, one consistent visual language. No brief-lost-in-translation between separate vendors.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q"><span>I'm launching a new restaurant in Kochi. Can you handle the launch content?</span><i class="fas fa-plus faq-icon"></i></button>
+          <div class="faq-a"><p>100%. From menu photography and launch reels to full social media rollout — we've worked with F&B brands across Kerala. We know how to make food look like it deserves more than just a story post.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q"><span>Do you do wedding photography or personal shoots?</span><i class="fas fa-plus faq-icon"></i></button>
+          <div class="faq-a"><p>No. We focus entirely on commercial and brand work. No weddings, no personal portraits. That's not us being difficult — it's how we stay sharp at what we actually do well.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q"><span>How does payment work?</span><i class="fas fa-plus faq-icon"></i></button>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q"><span>Can we see more of your portfolio before deciding?</span><i class="fas fa-plus faq-icon"></i></button>
+          <div class="faq-a"><p>Of course. Reach out via WhatsApp or email and we'll send over our full portfolio reel and category-specific work. The featured section above is just a sample — there's a lot more.</p></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section fade-in" id="contact">
       <div class="section-label">Let's Work Together</div>
       <h2 class="section-title">Get in touch</h2>
+      <div class="contact-layout">
 
-      <div class="contact-grid">
-        <div class="contact-card">
-          <div class="contact-icon"><i class="fas fa-envelope-open-text"></i></div>
-          <h3>Email</h3>
-          <a href="mailto:joyinmediahouse@gmail.com">joyinmediahouse@gmail.com</a>
+        <div class="contact-info">
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fas fa-envelope-open-text"></i></div>
+            <h3>Email</h3>
+            <a href="mailto:joyinmediahouse@gmail.com">joyinmediahouse@gmail.com</a>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+            <h3>WhatsApp</h3>
+            <p>+91 98950 12345</p>
+            <p class="contact-note">Mon – Sat &nbsp;·&nbsp; 9 am – 7 pm</p>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fas fa-map-marked-alt"></i></div>
+            <h3>Studio</h3>
+            <p>Joyin Media House<br>Kaloor, Kochi<br>Kerala 682 017</p>
+          </div>
         </div>
-        <div class="contact-card">
-          <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-          <h3>Call / WhatsApp</h3>
-          <p>+91 98950 12345</p>
-          <p class="contact-note">Mon – Sat &nbsp;·&nbsp; 9 am – 7 pm</p>
+
+        <div class="contact-form-wrap">
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cf-name">Your Name</label>
+                <input type="text" id="cf-name" placeholder="e.g. Arjun Menon" required>
+              </div>
+              <div class="form-group">
+                <label for="cf-phone">Phone / WhatsApp</label>
+                <input type="tel" id="cf-phone" placeholder="+91 98765 43210">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cf-service">Service Needed</label>
+              <select id="cf-service">
+                <option value="">— Select a service —</option>
+                <option>Advertising Production</option>
+                <option>Storytelling &amp; Brand Films</option>
+                <option>Social Media Marketing</option>
+                <option>Analytics &amp; Performance Reporting</option>
+                <option>Product Photography</option>
+                <option>Commercial Videography</option>
+                <option>Brand Identity &amp; Graphic Design</option>
+                <option>Content Strategy &amp; Scripting</option>
+                <option>Something Else</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cf-message">Tell Us About Your Project</label>
+              <textarea id="cf-message" placeholder="Give us a brief — the more detail, the better we can help." rows="5" required></textarea>
+            </div>
+            <p class="form-note"><i class="fas fa-lock"></i> Your details are only used to respond to your enquiry.</p>
+            <div class="form-actions">
+              <button type="button" class="form-btn whatsapp-btn" id="sendWhatsApp">
+                <i class="fab fa-whatsapp"></i> Send via WhatsApp
+              </button>
+              <button type="button" class="form-btn email-btn" id="sendEmail">
+                <i class="fas fa-envelope"></i> Send via Email
+              </button>
+            </div>
+          </form>
         </div>
-        <div class="contact-card">
-          <div class="contact-icon"><i class="fas fa-map-marked-alt"></i></div>
-          <h3>Studio</h3>
-          <p>Joyin Media House<br>Kaloor, Kochi<br>Kerala 682 017</p>
-        </div>
+
       </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="site-footer">
-      <img
-        src="https://res.cloudinary.com/debkiwitn/image/upload/v1775929221/JOYIN_MEDIA_LOGO_ciostj.png"
-        alt="Joyin Media"
-        class="footer-logo"
-      >
-      <p>© 2025 Joyin Media — Kaloor, Kochi.</p>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1775929221/JOYIN_MEDIA_LOGO_ciostj.png" alt="Joyin Media" class="footer-logo">
+          <p>A media production house built for brands that demand more.<br>Kaloor, Kochi — since 2024.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li>Advertising Production</li>
+            <li>Storytelling &amp; Brand Films</li>
+            <li>Social Media Marketing</li>
+            <li>Analytics &amp; Reporting</li>
+            <li>Product Photography</li>
+            <li>Commercial Videography</li>
+            <li>Brand Identity &amp; Design</li>
+            <li>Content Strategy &amp; Scripting</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:joyinmediahouse@gmail.com">joyinmediahouse@gmail.com</a>
+          <p>+91 98950 12345</p>
+          <p>Kaloor, Kochi, Kerala 682 017</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Joyin Media. All rights reserved.</p>
+      </div>
     </footer>
 
   </main>
-
-  <!-- ═══════════ GALLERY MODAL ═══════════ -->
-  <div class="modal-overlay" id="galleryModal">
-    <div class="modal-box">
-      <div class="modal-head">
-        <h3 id="galleryTitle">Gallery</h3>
-        <button class="modal-close" id="modalClose">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="gallery-grid" id="galleryGrid"></div>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>
