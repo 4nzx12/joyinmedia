@@ -71,6 +71,14 @@
 
 
   /* ══════════════════════════════════════
+     TRUST BAR DUPLICATION FOR INFINITE SCROLL
+  ══════════════════════════════════════ */
+  const trustInner = document.getElementById('trustInner');
+  const originalHTML = trustInner.innerHTML;
+  trustInner.innerHTML = originalHTML.repeat(3);
+
+
+  /* ══════════════════════════════════════
      3. SMOOTH NAVIGATION
   ══════════════════════════════════════ */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
