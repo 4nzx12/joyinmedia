@@ -6,40 +6,59 @@
   'use strict';
 
   /* ══════════════════════════════════════
-     1. CUSTOM CURSOR
+     1. CUSTOM CURSOR (desktop only)
   ══════════════════════════════════════ */
+  function isMobileDevice() {
+    if (navigator.userAgentData && typeof navigator.userAgentData.mobile === 'boolean') {
+      return navigator.userAgentData.mobile;
+    }
+    const ua = navigator.userAgent || '';
+    const mobileRe = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    if (mobileRe.test(ua)) return true;
+    if (window.matchMedia) {
+      try {
+        if (window.matchMedia('(pointer: coarse)').matches && !window.matchMedia('(pointer: fine)').matches) return true;
+      } catch (e) {}
+    }
+    return false;
+  }
+
+  const isMobile = isMobileDevice();
   const dot  = document.getElementById('cursorDot');
   const ring = document.getElementById('cursorRing');
 
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
-  let ringX  = mouseX;
-  let ringY  = mouseY;
+  if (isMobile) {
+    if (dot) dot.style.display = 'none';
+    if (ring) ring.style.display = 'none';
+  } else {
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let ringX  = mouseX;
+    let ringY  = mouseY;
 
-  document.addEventListener('mousemove', e => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    dot.style.left = mouseX + 'px';
-    dot.style.top  = mouseY + 'px';
-  });
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (dot) { dot.style.left = mouseX + 'px'; dot.style.top  = mouseY + 'px'; }
+    });
 
-  (function animateRing() {
-    ringX += (mouseX - ringX) * 0.13;
-    ringY += (mouseY - ringY) * 0.13;
-    ring.style.left = ringX + 'px';
-    ring.style.top  = ringY + 'px';
-    requestAnimationFrame(animateRing);
-  })();
+    (function animateRing() {
+      ringX += (mouseX - ringX) * 0.13;
+      ringY += (mouseY - ringY) * 0.13;
+      if (ring) { ring.style.left = ringX + 'px'; ring.style.top  = ringY + 'px'; }
+      requestAnimationFrame(animateRing);
+    })();
 
-  const interactiveSelector = 'a, button, .cs-card, .contact-card, .faq-item, .service-item, .team-member, .t-logo';
-  document.querySelectorAll(interactiveSelector).forEach(el => {
-    el.addEventListener('mouseenter', () => { dot.classList.add('hover');  ring.classList.add('hover');  });
-    el.addEventListener('mouseleave', () => { dot.classList.remove('hover'); ring.classList.remove('hover'); });
-  });
-  document.addEventListener('mousedown', () => dot.classList.add('click'));
-  document.addEventListener('mouseup',   () => dot.classList.remove('click'));
-  document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
-  document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '1'; });
+    const interactiveSelector = 'a, button, .cs-card, .contact-card, .faq-item, .service-item, .team-member, .t-logo';
+    document.querySelectorAll(interactiveSelector).forEach(el => {
+      el.addEventListener('mouseenter', () => { if (dot) dot.classList.add('hover'); if (ring) ring.classList.add('hover');  });
+      el.addEventListener('mouseleave', () => { if (dot) dot.classList.remove('hover'); if (ring) ring.classList.remove('hover'); });
+    });
+    document.addEventListener('mousedown', () => { if (dot) dot.classList.add('click'); });
+    document.addEventListener('mouseup',   () => { if (dot) dot.classList.remove('click'); });
+    document.addEventListener('mouseleave', () => { if (dot) dot.style.opacity = '0'; if (ring) ring.style.opacity = '0'; });
+    document.addEventListener('mouseenter', () => { if (dot) dot.style.opacity = '1'; if (ring) ring.style.opacity = '1'; });
+  }
 
 
   /* ══════════════════════════════════════
@@ -332,7 +351,7 @@
   /* ══════════════════════════════════════
      8. CONTACT FORM — WhatsApp & Email
   ══════════════════════════════════════ */
-  const WA_NUMBER  = '919895012345'; // +91 98950 12345
+  const WA_NUMBER  = '917736700496'; // 7736700496 (country code +91 prefixed)
 
   function getFormData() {
     const name    = (document.getElementById('cf-name').value    || '').trim();
