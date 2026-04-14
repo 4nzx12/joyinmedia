@@ -320,17 +320,19 @@ body {
 }
 .trust-track {
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 .trust-inner {
   display: flex; align-items: center;
-  gap: 3.5rem;
-  animation: trustScroll 28s linear infinite;
+  gap: 8rem;
+  animation: trustScroll 42s linear infinite;
   width: max-content;
 }
 .trust-inner:hover { animation-play-state: paused; }
 @keyframes trustScroll {
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  to   { transform: translateX(-33.33%); }
 }
 .t-logo {
   display: inline-flex; align-items: center; gap: 8px;
@@ -344,6 +346,14 @@ body {
 }
 .t-logo i { font-size: 1.2rem; }
 .t-logo:hover { opacity: 0.9; }
+.t-logo img {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+}
+[data-theme="light"] .t-logo img {
+  filter: invert(1);
+}
 
 /* ─── PROCESS SECTION ─── */
 .process-section {
