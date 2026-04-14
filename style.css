@@ -28,6 +28,9 @@
   --faq-glow-strong: rgba(255,107,0,0.12);
 }
 
+/* Accent text helper */
+.accent { color: var(--orange); }
+
 [data-theme="dark"] {
   --bg:              #0C0B09;
   --bg-2:            #161410;
