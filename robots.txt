@@ -1,0 +1,13 @@
+# Global rules for all search engines
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /checkout/
+Disallow: /cart/
+Disallow: /search/
+Disallow: /api/
+
+# Allow search engines to crawl everything else
+Allow: /
+
+# Link to your XML sitemap
+Sitemap: https://joyinmediahouse.com/sitemap.xml
