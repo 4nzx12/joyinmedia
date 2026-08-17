@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joyin Media • Kaloor, Kochi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Deferred Google tag (gtag.js) — loads after initial render to avoid blocking LCP -->
+  <script>
+    (function() {
+      function loadGtag() {
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-E8ZQ7JE404';
+        s.async = true;
+        document.head.appendChild(s);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);} 
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-E8ZQ7JE404');
+      }
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGtag, { timeout: 2000 });
+      } else {
+        window.addEventListener('load', function() { setTimeout(loadGtag, 1000); });
+      }
+    })();
+  </script>
+
+  <!-- Preload LCP image (hero logo) to make request discoverable early -->
+  <link rel="preload" href="https://res.cloudinary.com/debkiwitn/image/upload/v1775929221/JOYIN_MEDIA_LOGO_ciostj.png" as="image">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Video Background -->
+  <video class="video-bg" id="videoBg" autoplay muted loop playsinline>
+    <source id="videoSrc" src="https://res.cloudinary.com/debkiwitn/video/upload/v1775921496/lightmode_background_vtahka.mp4" type="video/mp4">
+  </video>
+  <div id="preloadVideoHint" style="display:none"></div>
+  <div class="video-overlay"></div>
+
+  <!-- FLOATING NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="#services" class="nav-logo" aria-label="Joyin Media logo">
+      <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1775929221/JOYIN_MEDIA_LOGO_ciostj.png" alt="Joyin Media logo" loading="eager" fetchpriority="high" decoding="async" width="120" height="26">
+    </a>
+    <a href="#services" class="nav-link">Work</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#faq" class="nav-link">FAQ</a>
+    <a href="#contact" class="nav-link">Contact</a>
+    <div class="nav-divider"></div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <i class="fas fa-sun toggle-sun"></i>
+      <span class="toggle-thumb"></span>
+      <i class="fas fa-moon toggle-moon"></i>
+    </button>
+  </nav>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero">
+      <img class="hero-logo" src="https://res.cloudinary.com/debkiwitn/image/upload/v1775929221/JOYIN_MEDIA_LOGO_ciostj.png" alt="Joyin Media" loading="eager" fetchpriority="high" decoding="async" width="680" height="260">
+      <h1 class="hero-title">Where Your Brand <span class="hero-wordmark">Takes Flight</span></h1>
+      <p class="hero-sub">Visuals for brands that find "blending in" a bore</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="stat-num">2+</span><span class="stat-label">Years</span></div>
+        <div class="stat-sep"></div>
+        <div class="hero-stat"><span class="stat-num">100+</span><span class="stat-label">Projects</span></div>
+        <div class="stat-sep"></div>
+        <div class="hero-stat"><span class="stat-num">100K+</span><span class="stat-label">Leads Generated</span></div>
+      </div>
+      <div class="hero-cta">
+        <a href="#services" class="btn-primary">Explore Our Work <i class="fas fa-arrow-down"></i></a>
+        <a href="#contact" class="btn-ghost">Get In Touch</a>
+      </div>
+    </header>
+
+    <!-- TRUST BAR -->
+    <div class="trust-section">
+      <p class="trust-label">Trusted by brands across Kerala &amp; beyond</p>
+      <div class="trust-outer">
+        <div class="trust-track">
+          <div class="trust-inner" id="trustInner">
+            <span class="t-logo"><img src="https://res.cloudinary.com/debkiwitn/image/upload/v1776132167/titan-logo-hd_h0ekmr.png" alt="Titan" loading="lazy" decoding="async" width="150" height="52"></span>
+            <span class="t-logo"><img src="https://res.cloudinary.com/debkiwitn/image/upload/v1776132168/manakish_logo_w9dzdi.png" alt="Manakish" loading="lazy" decoding="async" width="150" height="52"></span>
+            <span class="t-logo"><img src="https://res.cloudinary.com/debkiwitn/image/upload/v1776132168/kebab_crunch_logo_f7vap6.png" alt="Kebab Crunch" loading="lazy" decoding="async" width="150" height="52"></span>
+            <span class="t-logo"><img src="https://res.cloudinary.com/debkiwitn/image/upload/v1786889618/ChatGPT_Image_Aug_16_2026_05_48_12_PM_rhtn1s.png" alt="Brand logo" loading="lazy" decoding="async" width="150" height="52"></span>
+            <span class="t-logo"><img src="https://res.cloudinary.com/debkiwitn/image/upload/v1786889618/ChatGPT_Image_Aug_16_2026_05_50_50_PM_xia8gr.png" alt="Brand logo" loading="lazy" decoding="async" width="150" height="52"></span>
+            <span class="t-logo"><img src="https://res.cloudinary.com/debkiwitn/image/upload/v1786889618/ChatGPT_Image_Aug_16_2026_05_54_53_PM_hv5wci.png" alt="Brand logo" loading="lazy" decoding="async" width="150" height="52"></span>
+            <span class="t-logo"><img src="https://res.cloudinary.com/debkiwitn/image/upload/v1786889618/ChatGPT_Image_Aug_16_2026_05_53_33_PM_xtqoim.png" alt="Brand logo" loading="lazy" decoding="async" width="150" height="52"></span>
+            <span class="t-logo"><img src="https://res.cloudinary.com/debkiwitn/image/upload/v1786889618/ChatGPT_Image_Aug_16_2026_06_07_15_PM_pa9xj9.png" alt="Brand logo" loading="lazy" decoding="async" width="150" height="52"></span>
+            <span class="t-logo"><img src="https://res.cloudinary.com/debkiwitn/image/upload/v1786889618/ChatGPT_Image_Aug_16_2026_05_55_55_PM_xegi6i.png" alt="Brand logo" loading="lazy" decoding="async" width="150" height="52"></span>
+            <span class="t-logo"><img src="https://res.cloudinary.com/debkiwitn/image/upload/v1786889619/ChatGPT_Image_Aug_16_2026_06_02_11_PM_y4i6z3.png" alt="Brand logo" loading="lazy" decoding="async" width="150" height="52"></span>
+            <span class="t-logo"><img src="https://res.cloudinary.com/debkiwitn/image/upload/v1786889619/ChatGPT_Image_Aug_16_2026_06_17_23_PM_saydo4.png" alt="Brand logo" loading="lazy" decoding="async" width="150" height="52"></span>
+            <span class="t-logo t-logo--wide"><img src="https://res.cloudinary.com/debkiwitn/image/upload/v1786890246/VARAVUKADALOGO_ugo7zd.png" alt="Varavukada" loading="lazy" decoding="async" width="180" height="60"></span>
+            <span class="t-logo"><img src="https://res.cloudinary.com/debkiwitn/image/upload/v1786889619/71593f62-fb44-49e9-a45a-7ba3accc32ed_z8cl4f.png" alt="Brand logo" loading="lazy" decoding="async" width="150" height="52"></span>
+            <span class="t-logo"><img src="https://res.cloudinary.com/debkiwitn/image/upload/v1786889619/logo_xnmr8s.png" alt="Brand logo" loading="lazy" decoding="async" width="150" height="52"></span>
+            <span class="t-logo"><img src="https://res.cloudinary.com/debkiwitn/image/upload/v1786889801/ChatGPT_Image_Aug_16_2026_07_46_38_PM_btmgvl.png" alt="Brand logo" loading="lazy" decoding="async" width="150" height="52"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANIMATED PROCESS TIMELINE -->
+    <section class="process-timeline-section fade-in" id="process">
+      <div class="timeline-stage">
+        <div class="timeline-header">
+          <div class="section-label">The Process</div>
+          <h2 class="section-title">How we work</h2>
+          <p class="timeline-subheading">A simple process. A sharper outcome.</p>
+        </div>
+
+        <div class="timeline-container">
+          <div class="timeline">
+            <svg class="timeline-svg" aria-hidden="true" viewBox="0 0 1280 120" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="timelineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:rgba(200,90,0,0.14);stop-opacity:1" />
+                  <stop offset="50%" style="stop-color:rgba(200,90,0,0.86);stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:rgba(200,90,0,0.14);stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <path class="timeline-path" d="M 0 60 Q 180 20, 320 60 T 640 60 T 960 60 T 1280 60" 
+                    stroke="url(#timelineGradient)" stroke-width="2" fill="none" filter="drop-shadow(0 0 18px rgba(200,90,0,0.25))"/>
+            </svg>
+
+            <div class="milestone timeline-item" data-milestone="0" data-progress="0.25">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date-badge">01</div>
+              <div class="timeline-content chrome-card">
+                <h3 class="milestone-title">YOU TELL US</h3>
+                <p class="milestone-description">You bring the vision. We understand your goals, audience, brand, and what you want to achieve.</p>
+              </div>
+            </div>
+
+            <div class="milestone timeline-item" data-milestone="1" data-progress="0.5">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date-badge">02</div>
+              <div class="timeline-content chrome-card">
+                <h3 class="milestone-title">WE CREATE</h3>
+                <p class="milestone-description">We turn your vision into strategy, concepts, visuals, content, and creative built around your brand.</p>
+              </div>
+            </div>
+
+            <div class="milestone timeline-item" data-milestone="2" data-progress="0.75">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date-badge">03</div>
+              <div class="timeline-content chrome-card">
+                <h3 class="milestone-title">WE DELIVER</h3>
+                <p class="milestone-description">We refine, finalize, and deploy the finished work—ready to represent your brand and perform.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR SERVICES -->
+    <section class="services-section fade-in" id="services">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Our Services</h2>
+      <div class="package-grid" aria-label="Package selection">
+        <button class="package-card package-card--budget" type="button" aria-label="Choose Beginning package" aria-expanded="false">
+          <span class="package-card__glow" aria-hidden="true"></span>
+          <span class="package-card__content">
+            <span class="package-card__eyebrow">choose our</span>
+            <span class="package-card__title">BEGINNING<br>PACKAGE</span>
+          </span>
+          <span class="package-card__graphic" aria-hidden="true">
+            <span class="chart-bar" style="--bar-height: 28%"></span>
+            <span class="chart-bar" style="--bar-height: 40%"></span>
+            <span class="chart-bar" style="--bar-height: 52%"></span>
+            <span class="chart-bar" style="--bar-height: 68%"></span>
+            <span class="chart-bar" style="--bar-height: 58%"></span>
+            <span class="chart-bar" style="--bar-height: 82%"></span>
+            <span class="chart-bar" style="--bar-height: 62%"></span>
+            <span class="chart-bar" style="--bar-height: 90%"></span>
+            <span class="chart-bar" style="--bar-height: 74%"></span>
+            <span class="chart-bar" style="--bar-height: 66%"></span>
+            <span class="chart-bar" style="--bar-height: 46%"></span>
+            <span class="chart-bar" style="--bar-height: 32%"></span>
+          </span>
+          <span class="package-card__details" aria-hidden="true">
+            <span class="package-card__description">A focused marketing system built around your budget, your business, and your priorities.</span>
+            <span class="package-card__list">
+              <span>WE → Understand your business</span>
+              <span>WE → Plan where to spend</span>
+              <span>WE → Create the right content</span>
+              <span>WE → Market to the right audience</span>
+              <span>WE → Optimize every month</span>
+            </span>
+          </span>
+        </button>
+
+        <button class="package-card package-card--target" type="button" aria-label="Choose Target package" aria-expanded="false">
+          <span class="package-card__glow" aria-hidden="true"></span>
+          <span class="package-card__content">
+            <span class="package-card__eyebrow">choose our</span>
+            <span class="package-card__title">TARGET<br>PACKAGE</span>
+          </span>
+          <span class="package-card__graphic" aria-hidden="true">
+            <span class="chart-bar" style="--bar-height: 36%"></span>
+            <span class="chart-bar" style="--bar-height: 48%"></span>
+            <span class="chart-bar" style="--bar-height: 60%"></span>
+            <span class="chart-bar" style="--bar-height: 78%"></span>
+            <span class="chart-bar" style="--bar-height: 56%"></span>
+            <span class="chart-bar" style="--bar-height: 94%"></span>
+            <span class="chart-bar" style="--bar-height: 70%"></span>
+            <span class="chart-bar" style="--bar-height: 100%"></span>
+            <span class="chart-bar" style="--bar-height: 84%"></span>
+            <span class="chart-bar" style="--bar-height: 72%"></span>
+            <span class="chart-bar" style="--bar-height: 52%"></span>
+            <span class="chart-bar" style="--bar-height: 38%"></span>
+          </span>
+          <span class="package-card__details" aria-hidden="true">
+            <span class="package-card__description">A performance-focused marketing system built to turn your existing presence into measurable business growth.</span>
+            <span class="package-card__statement">You already have a foundation.</span>
+            <span class="package-card__statement">Now we focus your marketing budget on what actually moves the business forward.</span>
+            <span class="package-card__list">
+              <span>WE → Set clear business and marketing goals.</span>
+              <span>WE → Build content designed to attract and convert.</span>
+              <span>WE → Reach the right audience with the right message.</span>
+              <span>WE → Turn attention into enquiries, customers and sales.</span>
+              <span>WE → Track what works. Improve. Scale.</span>
+            </span>
+          </span>
+        </button>
+      </div>
+    </section>
+
+    <!-- FEATURED WORK -->
+    <section id="featured-work" class="featured-section fade-in">
+      <div class="section-label">Selected Projects</div>
+      <h2 class="section-title">Featured Work</h2>
+
+      <div class="cs-carousel" aria-label="Featured work carousel">
+        <div class="cs-viewport">
+          <div class="cs-stage" id="featuredStage"></div>
+        </div>
+        <button class="cs-arrow cs-prev" type="button" aria-label="Previous project">←</button>
+        <button class="cs-arrow cs-next" type="button" aria-label="Next project">→</button>
+        <div class="cs-dots" id="featuredDots" aria-label="Project navigation"></div>
+        <div id="csProgress" aria-label="Progress indicator"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section fade-in" id="about">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">About Joyin Media</h2>
+      <div class="about-intro">
+        <p>Founded in 2024, Joyin Media is a Kochi-based production house creating high-impact visuals for modern brands. From cinematic storytelling and fast-cut edits to bold effects, product and model photography, and sharp design—we build content that stands out and performs.</p>
+      </div>
+
+      <div class="team-wrap">
+        <div class="section-label" style="margin-bottom:2.5rem;">The Team</div>
+
+        <div class="team-triangle">
+          <div class="team-member team-member--top">
+            <div class="team-img-wrap">
+              <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1786925145/reyz_urlnf5.png" alt="Rayes Nizar" loading="lazy" decoding="async" width="330" height="440">
+            </div>
+            <div class="team-name-tag"><span class="t-name">Rayes Nizar</span></div>
+          </div>
+
+          <div class="team-row row-1">
+            <div class="team-member">
+              <div class="team-img-wrap">
+                <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1786925145/ANAS_kslmb8.png" alt="Anas Asif" loading="lazy" decoding="async" width="340" height="450">
+              </div>
+              <div class="team-name-tag"><span class="t-name">Anas Asif</span></div>
+            </div>
+            <div class="team-member">
+              <div class="team-img-wrap">
+                <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1786925145/riswan_xfxsne.png" alt="Riswan Riyas" loading="lazy" decoding="async" width="340" height="450">
+              </div>
+              <div class="team-name-tag"><span class="t-name">Riswan Riyas</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENT TESTIMONIALS -->
+    <section class="client-proof-section fade-in" id="faq">
+      <div class="section-label">What Our Clients Say</div>
+      <h2 class="section-title">What Our Clients Say</h2>
+
+      <div class="client-proof">
+        <div class="logo-row" aria-label="Client logos">
+          <button class="client-logo is-active" type="button" data-client-index="0" aria-label="Aabis Chai">
+            <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1786889618/ChatGPT_Image_Aug_16_2026_05_55_55_PM_xegi6i.png" alt="Aabis Chai" loading="lazy" decoding="async">
+          </button>
+          <button class="client-logo" type="button" data-client-index="1" aria-label="Waiver">
+            <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1786889619/71593f62-fb44-49e9-a45a-7ba3accc32ed_z8cl4f.png" alt="Waiver" loading="lazy" decoding="async">
+          </button>
+          <button class="client-logo" type="button" data-client-index="2" aria-label="BESIDE">
+            <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1786889619/ChatGPT_Image_Aug_16_2026_06_17_23_PM_saydo4.png" alt="BESIDE" loading="lazy" decoding="async">
+          </button>
+        </div>
+
+        <div class="proof-layout">
+          <article class="testimonial-panel client-story" aria-live="polite">
+            <div class="testimonial-brand">
+              <img class="brand-mark client-logo-image" src="https://res.cloudinary.com/debkiwitn/image/upload/v1786889618/ChatGPT_Image_Aug_16_2026_05_55_55_PM_xegi6i.png" alt="Aabis Chai" loading="lazy" decoding="async">
+            </div>
+            <blockquote class="client-quote">
+              “Joyin didn't just handle our social media. They understood what our business needed and turned it into content that actually represented us.”
+            </blockquote>
+            <div class="testimonial-meta">
+              <span class="testimonial-name">Aabis Chai</span>
+              <span class="testimonial-company">Aabis Chai</span>
+            </div>
+          </article>
+
+          <div class="results-stack client-story">
+            <article class="result-card result-card--feature">
+              <div class="result-card__label">Performance Snapshot</div>
+              <div class="result-visual visual-graph">
+                <div class="visual-header">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="visual-bars">
+                  <span style="--bar-height: 52%"></span>
+                  <span style="--bar-height: 66%"></span>
+                  <span style="--bar-height: 74%"></span>
+                  <span style="--bar-height: 84%"></span>
+                  <span style="--bar-height: 90%"></span>
+                  <span style="--bar-height: 78%"></span>
+                  <span style="--bar-height: 100%"></span>
+                </div>
+                <div class="visual-metric client-main-metric">1.67M+ Reach</div>
+              </div>
+            </article>
+
+            <div class="result-row">
+              <article class="result-card">
+                <div class="result-card__label">Reach Growth</div>
+                <div class="mini-chart">
+                  <span class="mini-line"></span>
+                  <span class="mini-line mini-line--second"></span>
+                </div>
+                <div class="mini-number client-mini-one">80K+ Engagements</div>
+              </article>
+
+              <article class="result-card">
+                <div class="result-card__label">Sales Lift</div>
+                <div class="mini-ring"><span class="client-mini-ring">10%</span></div>
+                <div class="mini-number client-mini-two">Sales Lift</div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section fade-in" id="contact">
+      <div class="section-label">Let's Work Together</div>
+      <h2 class="section-title">Get in touch</h2>
+      <div class="contact-layout">
+
+        <div class="contact-form-wrap">
+          <form id="contactForm" novalidate class="contact-form">
+            <div class="form-group">
+              <label for="cf-name">Name</label>
+              <input type="text" id="cf-name" placeholder="Your name" required>
+              <p class="field-error" data-error-for="name"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="cf-phone">Phone</label>
+              <input type="tel" id="cf-phone" placeholder="Your phone number" required>
+              <p class="field-error" data-error-for="phone"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="cf-message">How can we help?</label>
+              <textarea id="cf-message" placeholder="Tell us a little about what you need..." rows="5" required></textarea>
+              <p class="field-error" data-error-for="message"></p>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="form-btn whatsapp-btn" id="sendWhatsApp">
+                <i class="fab fa-whatsapp"></i> Send via WhatsApp
+              </button>
+              <button type="button" class="form-btn email-btn" id="sendEmail">
+                <i class="fas fa-envelope"></i> Send via Email
+              </button>
+            </div>
+
+            <p class="form-success" id="formSuccess" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="contact-info">
+          <a class="contact-card" href="mailto:joyinmediahouse@gmail.com" aria-label="Email Joyin Media">
+            <div class="contact-icon"><i class="fas fa-envelope-open-text"></i></div>
+            <h3>Email</h3>
+            <span>joyinmediahouse@gmail.com</span>
+          </a>
+          <a class="contact-card" href="https://wa.me/917736700496" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Joyin Media">
+            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+            <h3>WhatsApp</h3>
+            <span>+91 7736700496</span>
+          </a>
+          <a class="contact-card" href="https://www.instagram.com/joyinmediahouse/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Joyin Media">
+            <div class="contact-icon"><i class="fab fa-instagram"></i></div>
+            <h3>Instagram</h3>
+            <span>@joyinmediahouse</span>
+          </a>
+          <a class="contact-card" href="https://maps.app.goo.gl/quzpLtNU751EgHiT9" target="_blank" rel="noopener noreferrer" aria-label="Studio location">
+            <div class="contact-icon"><i class="fas fa-map-marked-alt"></i></div>
+            <h3>Studio</h3>
+            <span>SRM Road- Kaloor - Kochi</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="https://res.cloudinary.com/debkiwitn/image/upload/v1775929221/JOYIN_MEDIA_LOGO_ciostj.png" alt="Joyin Media" class="footer-logo" loading="lazy" decoding="async" width="160" height="60">
+          <p>A media production house built for brands that demand more.<br>Kaloor, Kochi — since 2024.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li>Advertising Production</li>
+            <li>Storytelling &amp; Brand Films</li>
+            <li>Social Media Marketing</li>
+            <li>Analytics &amp; Reporting</li>
+            <li>Product Photography</li>
+            <li>Commercial Videography</li>
+            <li>Brand Identity &amp; Design</li>
+            <li>Content Strategy &amp; Scripting</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:joyinmediahouse@gmail.com">joyinmediahouse@gmail.com</a>
+          <p>7736700496</p>
+          <p>Kaloor, Kochi, Kerala 682 017</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Joyin Media. All rights reserved.</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
