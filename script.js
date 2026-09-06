@@ -90,8 +90,8 @@
   const videoBg     = document.getElementById('videoBg');
   const videoSrc    = document.getElementById('videoSrc');
 
-  const LIGHT_VID = 'https://res.cloudinary.com/debkiwitn/video/upload/v1775921496/lightmode_background_vtahka.mp4';
-  const DARK_VID  = 'https://res.cloudinary.com/debkiwitn/video/upload/v1775925902/darkmode_background_1_i4zroh.mp4';
+  const LIGHT_VID = 'https://res.cloudinary.com/syfbjskp/video/upload/v1788697354/bg_vid_light.mp4';
+  const DARK_VID  = 'https://res.cloudinary.com/syfbjskp/video/upload/v1788697349/bg_vid_dark.mp4';
 
   function applyTheme(theme) {
     html.setAttribute('data-theme', theme);
@@ -225,7 +225,7 @@
 
   const clientStories = [
     {
-      logo: 'https://res.cloudinary.com/debkiwitn/image/upload/v1786889618/ChatGPT_Image_Aug_16_2026_05_55_55_PM_xegi6i.png',
+      logo: 'https://res.cloudinary.com/syfbjskp/image/upload/v1788694833/aabis_chai.png',
       name: 'Aabis Chai',
       company: 'Tea Snacks Cafe',
       quote: 'Joyin didn\'t just handle our social media. They understood what our business needed and turned it into content that actually represented us.',
@@ -236,7 +236,7 @@
       visualHeights: randomHeights()
     },
     {
-      logo: 'https://res.cloudinary.com/debkiwitn/image/upload/v1786889619/71593f62-fb44-49e9-a45a-7ba3accc32ed_z8cl4f.png',
+      logo: 'https://res.cloudinary.com/syfbjskp/image/upload/v1788694832/waiver.png',
       name: 'Waiver',
       company: 'Chauffeur Service',
       quote: 'The biggest difference was the way they approached our brand. They brought ideas, strategy and execution together instead of just creating posts.',
@@ -247,7 +247,7 @@
       visualHeights: randomHeights()
     },
     {
-      logo: 'https://res.cloudinary.com/debkiwitn/image/upload/v1786889619/ChatGPT_Image_Aug_16_2026_06_17_23_PM_saydo4.png',
+      logo: 'https://res.cloudinary.com/syfbjskp/image/upload/v1788694833/beside.png',
       name: 'BESIDE',
       company: 'Educational Service',
       quote: 'Working with Joyin gave us a clear direction. We finally knew what we were communicating, who we were targeting and why we were doing it.',
@@ -423,15 +423,13 @@
      FEATURED WORK CAROUSEL — Premium Edition
   ══════════════════════════════════════ */
   const projectsData = [
-    { type: 'video', title: 'Aabis Chai', category: 'Brand Story', src: 'https://res.cloudinary.com/debkiwitn/video/upload/v1786912823/aabis_chai_video_fjrhgg.mp4', accent: '#ff6b00' },
-    { type: 'video', title: 'Beatbox', category: 'Voice Over', src: 'https://res.cloudinary.com/debkiwitn/video/upload/v1786912823/beatbox_voice_over_vid_weorjx.mp4', accent: '#ff8c42' },
-    { type: 'video', title: 'Model Shoot', category: 'Fashion Film', src: 'https://res.cloudinary.com/debkiwitn/video/upload/v1786912826/3_vm5fej.mp4', accent: '#ff6b00' },
-    { type: 'video', title: 'Bike Edit', category: 'Action Film', src: 'https://res.cloudinary.com/debkiwitn/video/upload/v1786912982/bike_edit_pazbcb.mp4', accent: '#ff8c42' },
-    { type: 'video', title: 'Card Edit', category: 'Motion Design', src: 'https://res.cloudinary.com/debkiwitn/video/upload/v1786912999/card_edko_juyg6s.mp4', accent: '#ff6b00' },
-    { type: 'video', title: 'Troll Video', category: 'Comedy Edit', src: 'https://res.cloudinary.com/debkiwitn/video/upload/v1786913013/Troll_video_iixkvw.mp4', accent: '#ff8c42' },
-    { type: 'video', title: 'Friends', category: 'Social Content', src: 'https://res.cloudinary.com/debkiwitn/video/upload/v1786913294/boy_and_friend_ieono1.mp4', accent: '#ff6b00' },
-    { type: 'video', title: 'Shaskamaka', category: 'Product Feature', src: 'https://res.cloudinary.com/debkiwitn/video/upload/v1786913306/shaskamaka_1_chaya_1_milkshake_olbfpt.mp4', accent: '#ff8c42' },
-    { type: 'video', title: 'Cafe Edit', category: 'Brand Content', src: 'https://res.cloudinary.com/debkiwitn/video/upload/v1786913313/shaskamaka_ciggerate_video_s3rs6n.mp4', accent: '#ff6b00' }
+    { type: 'video', title: 'Onam', category: 'Festival Content', src: 'https://res.cloudinary.com/syfbjskp/video/upload/v1788701065/onam_out.mp4', accent: '#ff8c42' },
+    { type: 'video', title: 'Chai Girl', category: 'Brand Presentation', src: 'https://res.cloudinary.com/syfbjskp/video/upload/v1788701071/Chai_girll_tea_presentation_1.mp4', accent: '#ff6b00' },
+    { type: 'video', title: 'Boy and Friend', category: 'Social Content', src: 'https://res.cloudinary.com/syfbjskp/video/upload/v1788701074/boy_and_friend_1_1.mp4', accent: '#ff8c42' },
+    { type: 'video', title: 'Disabled', category: 'Social Awareness', src: 'https://res.cloudinary.com/syfbjskp/video/upload/v1788701074/disabled_1.mp4', accent: '#ff6b00' },
+    { type: 'video', title: 'Aabis Chai', category: 'Brand Content', src: 'https://res.cloudinary.com/syfbjskp/video/upload/v1788701075/aabis_chai_video_1_1.mp4', accent: '#ff8c42' },
+    { type: 'video', title: 'Troll Video', category: 'Comedy Edit', src: 'https://res.cloudinary.com/syfbjskp/video/upload/v1788701076/Troll_video_1.mp4', accent: '#ff6b00' },
+    { type: 'video', title: 'Making Video', category: 'Behind the Scenes', src: 'https://res.cloudinary.com/syfbjskp/video/upload/v1788701078/making_video_2_1.mp4', accent: '#ff8c42' }
   ];
 
   let autoRotateTimeout;
@@ -531,13 +529,21 @@
       const mediaWrap = document.createElement('div');
       mediaWrap.className = 'cs-media';
 
-      const media = document.createElement('video');
+      const media = document.createElement(project.type === 'embed' ? 'iframe' : 'video');
       media.src = project.src;
-      media.loop = true;
-      media.muted = true;
-      media.playsInline = true;
-      media.preload = 'metadata';
-      media.className = 'cs-vid';
+      media.className = project.type === 'embed' ? 'cs-embed' : 'cs-vid';
+
+      if (project.type === 'embed') {
+        media.setAttribute('title', project.title);
+        media.setAttribute('frameborder', '0');
+        media.setAttribute('allow', 'autoplay; fullscreen');
+        media.setAttribute('allowfullscreen', '');
+      } else {
+        media.loop = true;
+        media.muted = true;
+        media.playsInline = true;
+        media.preload = 'metadata';
+      }
 
       mediaWrap.appendChild(media);
 
@@ -645,7 +651,9 @@
         <button class="cs-fullscreen-prev" type="button" aria-label="Previous">←</button>
         <button class="cs-fullscreen-next" type="button" aria-label="Next">→</button>
         <div class="cs-fullscreen-media">
-          <video src="${project.src}" controls autoplay loop muted playsinline></video>
+          ${project.type === 'embed'
+            ? `<iframe src="${project.src}" title="${project.title}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`
+            : `<video src="${project.src}" controls autoplay loop muted playsinline></video>`}
         </div>
       </div>
     `;
