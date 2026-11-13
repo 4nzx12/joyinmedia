@@ -74,8 +74,9 @@ test('renders every section without hydration errors or horizontal overflow', as
 });
 
 test('theme persists, package details toggle, and testimonials switch', async ({ page }) => {
-  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'reduce' });
+  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'reduce' });
   await page.goto('/');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
   const theme = page.getByRole('button', { name: 'Toggle dark mode' });
   await theme.click();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
