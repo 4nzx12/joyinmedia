@@ -3,6 +3,7 @@ import { projects, videoPoster, videoSource } from '../data/content.js';
 import { useInView, usePageVisible, useReducedMotion, useSaveData } from '../hooks/useBrowserState.js';
 import { Button } from './ui/button.jsx';
 import { Marquee3D } from './ui/marquee-3d.jsx';
+import Icon from './Icon.jsx';
 
 const ProjectModal = lazy(() => import('./ProjectModal.jsx'));
 const wrap = index => (index + projects.length) % projects.length;
@@ -119,8 +120,8 @@ export default function FeaturedWork() {
             {projects.map((project, index) => <ProjectCard key={project.src} project={project} index={index} active={active} canPlay={canPlay} onOpen={() => { if (performance.now() >= suppressClickUntil.current) setModalIndex(index); }} />)}
           </div>
         </div>
-        <Button variant="outline" size="icon" className="cs-arrow cs-prev" aria-label="Previous project" onClick={() => setActive(index => wrap(index - 1))}>←</Button>
-        <Button variant="outline" size="icon" className="cs-arrow cs-next" aria-label="Next project" onClick={() => setActive(index => wrap(index + 1))}>→</Button>
+        <Button variant="outline" size="icon" className="cs-arrow cs-prev" aria-label="Previous project" onClick={() => setActive(index => wrap(index - 1))}><Icon name="arrow-left" /></Button>
+        <Button variant="outline" size="icon" className="cs-arrow cs-next" aria-label="Next project" onClick={() => setActive(index => wrap(index + 1))}><Icon name="arrow-right" /></Button>
         <div className="cs-dots" aria-label="Project navigation">{projects.map((project, index) => <button key={project.src} className={`cs-dot${active === index ? ' active' : ''}`} type="button" aria-label={`Go to ${project.title}`} aria-current={active === index ? 'true' : 'false'} onClick={() => setActive(index)} />)}</div>
         <div id="csProgress" aria-live={canRotate ? 'off' : 'polite'} aria-atomic="true" aria-label={`Project ${active + 1} of ${projects.length}`}>
           <span className="cs-progress-num">{String(active + 1).padStart(2, '0')}</span>

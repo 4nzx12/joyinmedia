@@ -5,11 +5,11 @@ export const packages = [
     "description": "A focused marketing system built around your budget, your business, and your priorities.",
     "statements": [],
     "steps": [
-      "WE → Understand your business",
-      "WE → Plan where to spend",
-      "WE → Create the right content",
-      "WE → Market to the right audience",
-      "WE → Optimize every month"
+      "Understand your business",
+      "Plan where to spend",
+      "Create the right content",
+      "Market to the right audience",
+      "Optimize every month"
     ],
     "bars": [
       28,
@@ -35,11 +35,11 @@ export const packages = [
       "Now we focus your marketing budget on what actually moves the business forward."
     ],
     "steps": [
-      "WE → Set clear business and marketing goals.",
-      "WE → Build content designed to attract and convert.",
-      "WE → Reach the right audience with the right message.",
-      "WE → Turn attention into enquiries, customers and sales.",
-      "WE → Track what works. Improve. Scale."
+      "Set clear business and marketing goals.",
+      "Build content designed to attract and convert.",
+      "Reach the right audience with the right message.",
+      "Turn attention into enquiries, customers and sales.",
+      "Track what works. Improve. Scale."
     ],
     "bars": [
       36,

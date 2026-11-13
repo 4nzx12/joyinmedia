@@ -14,6 +14,8 @@ test('renders every section without hydration errors or horizontal overflow', as
   page.on('console', message => { if (message.type() === 'error' && /hydration|react|invalid.*prop/i.test(message.text())) errors.push(message.text()); });
   await page.goto('/');
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Where Your Brand Takes Flight');
+  expect(await page.locator('body').innerText()).not.toMatch(/[\u2733\u2197\u2192\u2190\u2191\u2193\u2212\u00D7]/);
+  await expect(page.locator('.flight-star')).toHaveAttribute('viewBox', '0 0 24 24');
   await expect(page.locator('.hero-art, .art-wordmark, .art-orbit, .hero canvas')).toHaveCount(0);
   await expect(page.locator('.hero-copy')).toHaveCSS('text-align', 'center');
   const heroBackground = await page.locator('.hero').evaluate(element => getComputedStyle(element).backgroundImage);

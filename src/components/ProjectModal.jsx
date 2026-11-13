@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { projects, videoPoster, videoSource } from '../data/content.js';
+import Icon from './Icon.jsx';
 
 export default function ProjectModal({ index, onChange, onClose }) {
   const dialogRef = useRef(null);
@@ -29,9 +30,9 @@ export default function ProjectModal({ index, onChange, onClose }) {
       }
     }}>
       <div className="cs-fullscreen-wrap">
-        <button className="cs-fullscreen-close" type="button" aria-label="Close project" onClick={onClose}>×</button>
-        <button className="cs-fullscreen-prev" type="button" aria-label="Previous video" onClick={() => onChange(index - 1)}>←</button>
-        <button className="cs-fullscreen-next" type="button" aria-label="Next video" onClick={() => onChange(index + 1)}>→</button>
+        <button className="cs-fullscreen-close" type="button" aria-label="Close project" onClick={onClose}><Icon name="close" /></button>
+        <button className="cs-fullscreen-prev" type="button" aria-label="Previous video" onClick={() => onChange(index - 1)}><Icon name="arrow-left" /></button>
+        <button className="cs-fullscreen-next" type="button" aria-label="Next video" onClick={() => onChange(index + 1)}><Icon name="arrow-right" /></button>
         <div className="cs-fullscreen-media">
           <video key={project.src} src={videoSource(project.src)} poster={videoPoster(project.src)} controls autoPlay loop muted playsInline aria-label={project.title} onError={() => setFailedSource(project.src)} />
         </div>
