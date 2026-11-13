@@ -16,7 +16,9 @@ test('renders every section without hydration errors or horizontal overflow', as
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Where Your Brand Takes Flight');
   await expect(page.locator('.hero-art, .art-wordmark, .art-orbit, .hero canvas')).toHaveCount(0);
   await expect(page.locator('.hero-copy')).toHaveCSS('text-align', 'center');
-  expect(await page.locator('.hero').evaluate(element => getComputedStyle(element).backgroundImage)).toContain('radial-gradient');
+  const heroBackground = await page.locator('.hero').evaluate(element => getComputedStyle(element).backgroundImage);
+  expect(heroBackground).toContain('radial-gradient');
+  expect(heroBackground).toContain('linear-gradient');
   for (const title of ['Business Strategy & Consulting', 'Brand & Marketing Growth', 'Sales & Revenue Solutions', 'Operations & Management', 'Technology & Digital Transformation']) {
     await expect(page.getByRole('heading', { name: title })).toBeVisible();
   }
