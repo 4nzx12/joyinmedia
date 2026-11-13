@@ -88,25 +88,78 @@
   const html        = document.documentElement;
   const videoBg     = document.getElementById('videoBg');
   const videoSrc    = document.getElementById('videoSrc');
+  const videoPoster = document.getElementById('videoPoster');
 
   const LIGHT_VID = 'https://res.cloudinary.com/syfbjskp/video/upload/v1788697354/bg_vid_light.mp4';
   const DARK_VID  = 'https://res.cloudinary.com/syfbjskp/video/upload/v1788697349/bg_vid_dark.mp4';
+  const LIGHT_POSTER = 'https://res.cloudinary.com/syfbjskp/video/upload/so_0/v1788697354/bg_vid_light.jpg';
+  const DARK_POSTER = 'https://res.cloudinary.com/syfbjskp/video/upload/so_0/v1788697349/bg_vid_dark.jpg';
+  let backgroundRetryTimer;
+  let backgroundPauseRetried = false;
+
+  function lockBackgroundVideo() {
+    // Set properties as well as HTML attributes before every playback attempt.
+    videoBg.defaultMuted = true;
+    videoBg.muted = true;
+    videoBg.playsInline = true;
+    videoBg.autoplay = true;
+    videoBg.loop = true;
+    videoBg.controls = false;
+    videoBg.disablePictureInPicture = true;
+    videoBg.disableRemotePlayback = true;
+  }
 
   function applyTheme(theme) {
     html.setAttribute('data-theme', theme);
     try { localStorage.setItem('jm-theme', theme); } catch (e) { /* Storage may be disabled. */ }
-    videoSrc.src = theme === 'dark' ? DARK_VID : LIGHT_VID;
-    videoBg.load();
+    const source = theme === 'dark' ? DARK_VID : LIGHT_VID;
+    if (videoPoster) videoPoster.src = theme === 'dark' ? DARK_POSTER : LIGHT_POSTER;
+    lockBackgroundVideo();
+    backgroundPauseRetried = false;
+    // Preserve playback already started by the HTML autoplay attribute.
+    if (videoSrc.src !== source) {
+      document.body.classList.remove('video-visible');
+      videoSrc.src = source;
+      videoBg.load();
+    }
     syncBackgroundPlayback();
   }
 
   function syncBackgroundPlayback() {
-    if (motionQuery.matches || document.hidden) videoBg.pause();
-    else videoBg.play().catch(() => {});
+    lockBackgroundVideo();
+    if (document.hidden) {
+      videoBg.pause();
+      return;
+    }
+    if (!videoBg.paused) return;
+    const playback = videoBg.play();
+    playback?.catch(() => {
+      // A device policy may require a gesture. Keep the matching still frame
+      // visible and retry on normal interaction, without adding a play button.
+      if (videoBg.paused) document.body.classList.remove('video-visible');
+    });
   }
-  motionQuery.addEventListener('change', syncBackgroundPlayback);
   document.addEventListener('visibilitychange', syncBackgroundPlayback);
+  window.addEventListener('pageshow', syncBackgroundPlayback);
+  window.addEventListener('focus', syncBackgroundPlayback);
   videoBg.addEventListener('loadeddata', syncBackgroundPlayback);
+  videoBg.addEventListener('canplay', syncBackgroundPlayback);
+  videoBg.addEventListener('playing', () => {
+    clearTimeout(backgroundRetryTimer);
+    backgroundPauseRetried = false;
+    document.body.classList.add('video-visible');
+  });
+  videoBg.addEventListener('pause', () => {
+    document.body.classList.remove('video-visible');
+    if (document.hidden || backgroundPauseRetried) return;
+    backgroundPauseRetried = true;
+    clearTimeout(backgroundRetryTimer);
+    backgroundRetryTimer = setTimeout(syncBackgroundPlayback, 200);
+  });
+  videoBg.addEventListener('error', () => document.body.classList.remove('video-visible'));
+  ['touchend', 'click', 'keydown'].forEach(eventName => {
+    document.addEventListener(eventName, syncBackgroundPlayback, { capture: true, passive: true });
+  });
 
   let saved;
   try { saved = localStorage.getItem('jm-theme'); } catch (e) { /* Use the system theme. */ }
@@ -122,10 +175,7 @@
   ══════════════════════════════════════ */
   (function pageReveal() {
     document.body.classList.add('page-visible');
-    const revealVideo = () => document.body.classList.add('video-visible');
-    if (videoBg.readyState >= 2) revealVideo();
-    else videoBg.addEventListener('loadeddata', revealVideo, { once: true });
-    videoBg.addEventListener('error', revealVideo, { once: true });
+    if (!videoBg.paused && videoBg.readyState >= 3) document.body.classList.add('video-visible');
   })();
 
 
@@ -971,7 +1021,7 @@
     email: 'joyinmediahouse@gmail.com',
     whatsapp: '+91 7736700496',
     instagram: 'https://www.instagram.com/joyinmediahouse/',
-    studio: 'https://maps.app.goo.gl/quzpLtNU751EgHiT9'
+    office: 'https://maps.app.goo.gl/qiC4VHdL4EsD3Nyu9'
   };
 
   function getFormData() {
@@ -1101,7 +1151,7 @@
     { selector: '.contact-card:nth-child(1)', href: `mailto:${contactConfig.email}` },
     { selector: '.contact-card:nth-child(2)', href: `https://wa.me/${(contactConfig.whatsapp.replace(/\D/g, '') || '917736700496')}` },
     { selector: '.contact-card:nth-child(3)', href: contactConfig.instagram },
-    { selector: '.contact-card:nth-child(4)', href: contactConfig.studio }
+    { selector: '.contact-card:nth-child(4)', href: contactConfig.office }
   ];
 
   contactCardConfig.forEach(({ selector, href }) => {

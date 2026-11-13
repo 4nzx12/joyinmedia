@@ -1,0 +1,13 @@
+.component-marquee { --duration: 45s; --gap: 2.5rem; display: flex; overflow: hidden; gap: var(--gap); }
+.component-marquee-track { display: flex; flex-shrink: 0; align-items: center; justify-content: space-around; gap: var(--gap); animation: component-marquee-scroll var(--duration) linear infinite; animation-play-state: var(--marquee-play, paused); }
+.component-marquee-vertical { flex-direction: column; }
+.component-marquee-vertical .component-marquee-track { flex-direction: column; animation-name: component-marquee-scroll-vertical; }
+.component-marquee-reverse .component-marquee-track { animation-direction: reverse; }
+.component-marquee-pause:hover .component-marquee-track, .component-marquee-pause:focus-within .component-marquee-track { animation-play-state: paused; }
+@keyframes component-marquee-scroll { to { transform: translateX(calc(-100% - var(--gap))); } }
+@keyframes component-marquee-scroll-vertical { to { transform: translateY(calc(-100% - var(--gap))); } }
+@media (prefers-reduced-motion: reduce) {
+  .component-marquee-track { animation: none; }
+  .component-marquee-track[aria-hidden] { display: none; }
+  .brand-marquee .component-marquee-track { flex-wrap: wrap; flex-shrink: 1; justify-content: center; }
+}

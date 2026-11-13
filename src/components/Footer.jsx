@@ -1,0 +1,13 @@
+import { contact, logo } from '../data/content.js';
+import { MetalButton } from './ui/metal-button.jsx';
+import ShimmerText from './ui/shimmer-text.jsx';
+export default function Footer() {
+  return <footer className="site-footer" id="site-footer" aria-label="Joyin Media">
+    <div className="footer-inner">
+      <div className="footer-invitation"><div><p className="footer-eyebrow">A little ambition goes a long way.</p><h2 className="footer-title">Let’s make<br /><em><ShimmerText>something matter.</ShimmerText></em></h2></div>
+        <MetalButton asChild><a href={`mailto:${contact.email}`}>Start a project <span aria-hidden="true">↗</span></a></MetalButton>
+      </div>
+      <div className="footer-logo-wrap"><a href="#top" aria-label="Joyin Media — back to top"><img src={logo} alt="Joyin Media" className="footer-logo" width="160" height="60" loading="lazy" decoding="async" /></a></div>
+    </div>
+  </footer>;
+}

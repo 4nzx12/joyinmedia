@@ -1,0 +1,36 @@
+/* Reusable component styles adapted from the supplied TSX / Tailwind collection. */
+.ui-button,.liquid-button,.metal-button { display:inline-flex; align-items:center; justify-content:center; gap:12px; border-radius:999px; min-height:48px; padding:13px 24px; font-size:13px; line-height:1.3; text-decoration:none; transition:background .25s,box-shadow .25s,transform .25s; position:relative; isolation:isolate; }
+.ui-button { border:1px solid transparent; }
+.ui-button-primary { background:var(--text); color:var(--bg); }
+.ui-button-primary:hover { background:var(--orange); color:var(--bg); }
+.ui-button-outline { border-color:var(--border); background:transparent; color:var(--text); }
+.ui-button-outline:hover { background:var(--soft); border-color:var(--text-2); }
+.ui-button-ghost { color:var(--text); background:transparent; }
+.ui-button-ghost:hover { background:var(--soft); }
+.ui-button-secondary { background:var(--soft); color:var(--text); }
+.ui-button-icon { min-height:44px; width:44px; height:44px; padding:0; border-radius:50%; }
+.ui-button-sm { min-height:36px; padding:9px 16px; font-size:11px; }
+.ui-button-lg { min-height:54px; padding:16px 30px; }
+.liquid-button { border:1px solid #ffffff35; background:var(--orange); color:#fff8ef; border-radius:100px; overflow:hidden; box-shadow:inset 0 1px 1px #ffffff90,inset 0 -2px 3px #38120350,0 3px 8px #713b1920; }
+[data-theme="dark"] .liquid-button { background:#c65b30; color:#fff8ef; }
+.liquid-button > * { position:relative; z-index:1; }
+.liquid-button .liquid-button-refraction,.liquid-button .liquid-button-sheen { position:absolute; inset:0; border-radius:inherit; pointer-events:none; z-index:-1; }
+.liquid-button-sheen { background:linear-gradient(165deg,#ffffff38,transparent 40%,#00000012); box-shadow:inset 1px 1px 1px #ffffff80,inset -1px -1px 1px #00000040; }
+.liquid-button:hover { transform:translateY(-2px); box-shadow:inset 0 1px 2px #ffffff90,0 6px 16px #713b1930; }
+.liquid-button:active { transform:translateY(1px); }
+.liquid-button-sm { min-height:38px; font-size:11px; padding:10px 20px; }
+.liquid-button-light { background:#fff2; color:inherit; }
+.glass-filter { position:absolute !important; width:0; height:0; pointer-events:none; overflow:hidden; }
+.metal-button { border:1px solid #92928c; padding:14px 24px; background:linear-gradient(#f4f3ee,#c6c5bf); color:#36372f; font-weight:400; box-shadow:inset 0 0 0 1px #fff8,inset 0 2px 1px #fff,inset 0 -2px 2px #8e8d8355,0 3px 5px #0001; text-shadow:0 1px #fff7; overflow:hidden; }
+.metal-button::before { content:''; position:absolute; inset:2px; border:1px solid #fff6; border-radius:inherit; pointer-events:none; }
+.metal-button:hover { filter:brightness(1.05); box-shadow:inset 0 1px 1px #fff,0 5px 10px #0002; }
+.metal-button:active { transform:translateY(2px) scale(.99); box-shadow:inset 0 1px 4px #0002; }
+.metal-button-shine { position:absolute; inset:0; background:linear-gradient(120deg,transparent,#fff6,transparent); opacity:0; pointer-events:none; }
+.metal-button:active .metal-button-shine { opacity:.5; }
+.metal-button-bronze { background:linear-gradient(#ffe3c9,#a36f3d); border-color:#864813; color:#3b220d; }
+.shimmer-text { display:inline-block; background-color:currentColor; background-image:linear-gradient(to right,currentColor 0%,var(--shimmer-contrast,#e49b70) 45%,var(--shimmer-contrast,#e49b70) 55%,currentColor 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; background-repeat:no-repeat; background-position-x:250%; }
+.site-footer .shimmer-text { --shimmer-contrast:#f4ba88; }
+[data-theme="dark"] .hero-title .shimmer-text { --shimmer-contrast:#ffe5c5; }
+number-flow-react { font:inherit; }
+.ui-button:disabled,.metal-button:disabled,.liquid-button:disabled { opacity:.5; pointer-events:none; }
+@media (prefers-reduced-motion:reduce) { .liquid-button:hover,.metal-button:active { transform:none; } .shimmer-text { background-image:none; } }
