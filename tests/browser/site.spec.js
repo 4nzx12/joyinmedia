@@ -16,11 +16,20 @@ test('renders every section without hydration errors or horizontal overflow', as
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Where Your Brand Takes Flight');
   expect(await page.locator('body').innerText()).not.toMatch(/[\u2733\u2197\u2192\u2190\u2191\u2193\u2212\u00D7]/);
   await expect(page.locator('.flight-star')).toHaveAttribute('viewBox', '0 0 24 24');
-  await expect(page.locator('.hero-art, .art-wordmark, .art-orbit, .hero canvas')).toHaveCount(0);
+  const heroEmMetrics = await page.locator('.hero-title em').evaluate(element => {
+    const style = getComputedStyle(element);
+    return { lineHeight: parseFloat(style.lineHeight), fontSize: parseFloat(style.fontSize) };
+  });
+  expect(heroEmMetrics.lineHeight / heroEmMetrics.fontSize).toBeCloseTo(1.2);
+  await expect(page.locator('.hero-art, .art-wordmark, .art-orbit')).toHaveCount(0);
   await expect(page.locator('.hero-copy')).toHaveCSS('text-align', 'center');
   const heroBackground = await page.locator('.hero').evaluate(element => getComputedStyle(element).backgroundImage);
   expect(heroBackground).toContain('radial-gradient');
   expect(heroBackground).toContain('linear-gradient');
+  const footerBackground = await page.locator('.footer-gradient').evaluate(element => getComputedStyle(element).backgroundImage);
+  const radialGradient = background => background.match(/radial-gradient\([^)]*\)/)[0];
+  expect(radialGradient(footerBackground)).toBe(radialGradient(heroBackground));
+  await expect(page.locator('.footer-gradient')).toHaveCount(1);
   for (const title of ['Business Strategy & Consulting', 'Brand & Marketing Growth', 'Sales & Revenue Solutions', 'Operations & Management', 'Technology & Digital Transformation']) {
     await expect(page.getByRole('heading', { name: title })).toBeVisible();
   }
@@ -196,7 +205,7 @@ test('reduced motion stops marquees and automatic carousel movement', async ({ p
 test('the hero fills the viewport width with its gradient and no artwork box', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
-  await expect(page.locator('.hero-art, .art-wordmark, .hero canvas')).toHaveCount(0);
+  await expect(page.locator('.hero-art, .art-wordmark, .art-orbit')).toHaveCount(0);
   const heroBackground = await page.locator('.hero').evaluate(element => {
     const bounds = element.getBoundingClientRect();
     const background = getComputedStyle(element);

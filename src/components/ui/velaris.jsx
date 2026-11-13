@@ -9,7 +9,7 @@ function hexToRgb(hex) {
   return [0, 2, 4].map(index => parseInt(expanded.slice(index, index + 2), 16) / 255);
 }
 
-export default function Velaris({ bg = '#1b100a', colors = DEFAULT_COLORS, speed = 1.1, grain = 0.35, className, children }) {
+export default function Velaris({ bg = '#1b100a', colors = DEFAULT_COLORS, speed = 1.0, grain = 0.12, className, children }) {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
   const [generation, setGeneration] = useState(0);
@@ -38,12 +38,14 @@ export default function Velaris({ bg = '#1b100a', colors = DEFAULT_COLORS, speed
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,1,1]), gl.STATIC_DRAW);
     const position = gl.getAttribLocation(program, 'position');
     gl.enableVertexAttribArray(position); gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
-    const uniforms = Object.fromEntries(['u_resolution', 'u_time', 'u_grain', 'u_colors[0]', 'u_bg'].map(name => [name, gl.getUniformLocation(program, name)]));
+    const uniforms = Object.fromEntries(['u_resolution', 'u_time', 'u_grain', 'u_colors[0]', 'u_bg', 'u_dark'].map(name => [name, gl.getUniformLocation(program, name)]));
     const palette = JSON.parse(colorsKey).slice(0, 4);
     while (palette.length < 4) palette.push(palette.at(-1) || '#000000');
     gl.uniform3fv(uniforms['u_colors[0]'], new Float32Array(palette.flatMap(hexToRgb)));
     gl.uniform3fv(uniforms.u_bg, hexToRgb(bg)); gl.uniform1f(uniforms.u_grain, grain);
     let frame = 0, lastTime = 0, elapsed = 0, inView = false, lost = false;
+    let themeMix = document.documentElement.dataset.theme === 'dark' ? 1 : 0;
+    let targetTheme = themeMix;
     const motion = matchMedia('(prefers-reduced-motion: reduce)');
     const connection = navigator.connection;
     const canAnimate = () => inView && !document.hidden && !motion.matches && !connection?.saveData && !lost;
@@ -51,16 +53,23 @@ export default function Velaris({ bg = '#1b100a', colors = DEFAULT_COLORS, speed
       if (lost) return;
       gl.uniform2f(uniforms.u_resolution, canvas.width, canvas.height);
       gl.uniform1f(uniforms.u_time, elapsed * 0.001 * speed);
+      gl.uniform1f(uniforms.u_dark, themeMix);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); canvas.dataset.ready = 'true';
     }
     function render(time) {
       if (!canAnimate()) { frame = 0; return; }
-      if (time - lastTime >= 1000 / 30) { elapsed += lastTime ? Math.min(time - lastTime, 60) : 0; lastTime = time; draw(); }
+      if (time - lastTime >= 1000 / 30) {
+        elapsed += lastTime ? Math.min(time - lastTime, 60) : 0;
+        lastTime = time;
+        themeMix += (targetTheme - themeMix) * 0.18;
+        draw();
+      }
       frame = requestAnimationFrame(render);
     }
     function sync() {
       cancelAnimationFrame(frame); frame = 0; lastTime = 0;
-      if (canAnimate()) frame = requestAnimationFrame(render); else draw();
+      if (canAnimate()) frame = requestAnimationFrame(render);
+      else { themeMix = targetTheme; draw(); }
     }
     function resize() {
       const dpr = Math.min(devicePixelRatio || 1, 1.25);
@@ -70,12 +79,18 @@ export default function Velaris({ bg = '#1b100a', colors = DEFAULT_COLORS, speed
     }
     const resizeObserver = new ResizeObserver(resize); resizeObserver.observe(container); resize();
     const observer = new IntersectionObserver(([entry]) => { inView = entry.isIntersecting; sync(); }); observer.observe(container);
+    // A palette change keeps the current time and geometry intact.
+    const themeObserver = new MutationObserver(() => {
+      targetTheme = document.documentElement.dataset.theme === 'dark' ? 1 : 0;
+      sync();
+    });
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
     const contextLost = event => { event.preventDefault(); lost = true; cancelAnimationFrame(frame); delete canvas.dataset.ready; };
     const restored = () => setGeneration(value => value + 1);
     canvas.addEventListener('webglcontextlost', contextLost); canvas.addEventListener('webglcontextrestored', restored);
     document.addEventListener('visibilitychange', sync); motion.addEventListener('change', sync); connection?.addEventListener('change', sync);
     return () => {
-      cancelAnimationFrame(frame); observer.disconnect(); resizeObserver.disconnect();
+      cancelAnimationFrame(frame); observer.disconnect(); resizeObserver.disconnect(); themeObserver.disconnect();
       canvas.removeEventListener('webglcontextlost', contextLost); canvas.removeEventListener('webglcontextrestored', restored);
       document.removeEventListener('visibilitychange', sync); motion.removeEventListener('change', sync); connection?.removeEventListener('change', sync);
       gl.deleteBuffer(buffer); gl.deleteProgram(program);
@@ -102,6 +117,7 @@ uniform float u_time;
 uniform float u_grain;
 uniform vec3 u_colors[4];
 uniform vec3 u_bg;
+uniform float u_dark;
 
 vec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }
 float snoise(vec2 v){
@@ -135,23 +151,20 @@ void main() {
   float ratio = u_resolution.x / u_resolution.y;
   vec2 p = uv - 0.5;
   p.x *= ratio;
-  float t = u_time * 0.1;
-
-  float n1 = snoise(p * 0.4 + vec2(t * 0.2, -t * 0.3));
-  float n2 = snoise(p * 0.55 + vec2(-t * 0.15, t * 0.25) + n1 * 0.25);
-  float n3 = snoise(p * 0.75 + vec2(t * 0.1, -t * 0.2) + n2 * 0.2);
-
-  vec3 col = u_bg;
-  float dist = length(p) * 1.5;
-  float vignette = 1.0 - smoothstep(0.3, 1.2, dist);
-  col = mix(col, u_colors[0], smoothstep(-0.2, 0.5, n1) * 0.85);
-  col = mix(col, u_colors[1], smoothstep(-0.1, 0.6, n2) * 0.7);
-  col = mix(col, u_colors[2], smoothstep(-0.3, 0.4, n3) * 0.6);
-  col = mix(col, u_colors[3], smoothstep(0.0, 0.7, n1 * n2) * 0.5);
-  float glow = (1.0 - smoothstep(0.0, 0.8, dist)) * 0.3;
-  col += u_colors[1] * glow;
-  col = mix(col * 0.2, col, vignette);
-  float grain = fract(sin(dot(uv, vec2(12.9898, 78.233))) * 43758.5453 + u_time);
+  float t = u_time * 0.8;
+  // One wide, softly feathered sweep instead of repeated noise-shaped islands.
+  float bend = sin(uv.x * 2.1 + t * 0.65) * 0.16;
+  float axis = uv.y * 0.85 + uv.x * 0.55 + bend;
+  float center = 0.72 + sin(t * 0.6) * 0.3;
+  float width = 0.38 + sin(t * 0.45 + 1.0) * 0.08;
+  float distance = (axis - center) / width;
+  float sweep = exp(-distance * distance * 1.5);
+  float wash = smoothstep(0.15, 1.5, uv.x + uv.y * 0.3);
+  float shade = 0.98 - wash * 0.1;
+  vec3 neutral = vec3(mix(shade, 1.0 - shade, u_dark));
+  vec3 orange = mix(u_colors[1], vec3(0.94, 0.46, 0.16), uv.x * 0.35);
+  vec3 col = mix(neutral, orange, sweep * 0.92);
+  float grain = fract(sin(dot(uv, vec2(12.9898, 78.233))) * 43758.5453);
   col += (grain - 0.5) * u_grain * 0.1;
   gl_FragColor = vec4(col, 1.0);
 }

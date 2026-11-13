@@ -2,9 +2,11 @@ import { LiquidButton } from './ui/liquid-glass-button.jsx';
 import { Button } from './ui/button.jsx';
 import ShimmerText from './ui/shimmer-text.jsx';
 import Icon from './Icon.jsx';
+import Velaris from './ui/velaris.jsx';
 
 export default function Hero() {
   return <header className="hero" id="home">
+    <Velaris className="hero-gradient" />
     <div className="hero-copy">
       <h1 className="hero-title">Where Your Brand <em><ShimmerText>Takes Flight</ShimmerText><Icon name="sparkle" className="flight-star" /></em></h1>
       <div className="hero-cta">
