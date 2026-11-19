@@ -32,5 +32,15 @@
 .site-footer .shimmer-text { --shimmer-contrast:#f4ba88; }
 [data-theme="dark"] .hero-title .shimmer-text { --shimmer-contrast:#ffe5c5; }
 number-flow-react { font:inherit; }
+.count-up,.count-up-visual { display:inline-flex; align-items:baseline; font-variant-numeric:tabular-nums; }
+.count-up { min-width:1ch; justify-content:center; }
+.count-up-separator { font-variant-numeric:proportional-nums; }
+.count-up-char { position:relative; display:inline-block; }
+.count-up-char > span { display:inline-block; }
+.count-up-fade { overflow:hidden; }
+.count-up-digit { position:relative; display:inline-block; width:1ch; overflow:hidden; line-height:1; }
+.count-up-measure { display:block; visibility:hidden; }
+.count-up-reel { display:flex; flex-direction:column; position:absolute; inset:0 0 auto; }
+.count-up-reel > span { display:flex; align-items:center; justify-content:center; }
 .ui-button:disabled,.metal-button:disabled,.liquid-button:disabled { opacity:.5; pointer-events:none; }
-@media (prefers-reduced-motion:reduce) { .liquid-button:hover,.metal-button:active { transform:none; } .shimmer-text { background-image:none; } }
+@media (prefers-reduced-motion:reduce) { .liquid-button:hover,.metal-button:active { transform:none; } .shimmer-text { background-image:none; } .voxel-horizon canvas { transition:none; } }

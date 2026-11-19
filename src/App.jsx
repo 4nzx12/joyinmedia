@@ -25,15 +25,15 @@ export default function App() {
       <div className="scroll-progress" aria-hidden="true" />
       <Navbar theme={theme} onToggleTheme={toggleTheme} />
       <main className="content" id="main">
-        <Hero />
+        <Hero theme={theme} />
         <TrustBar />
         <FeaturedWork />
-        <Services />
+        <Services theme={theme} />
         <Process />
         <Testimonials />
-        <Contact />
+        <Contact theme={theme} />
       </main>
-      <Footer />
+      <Footer theme={theme} />
     </LazyMotion>
   );
 }

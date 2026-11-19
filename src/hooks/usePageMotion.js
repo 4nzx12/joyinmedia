@@ -66,6 +66,8 @@ export default function usePageMotion() {
         target.setAttribute('tabindex', '-1');
         target.addEventListener('blur', () => target.removeAttribute('tabindex'), { once: true, signal });
       }
+      target.setAttribute('data-anchor-target', '');
+      target.addEventListener('blur', () => target.removeAttribute('data-anchor-target'), { once: true, signal });
       target.focus({ preventScroll: true });
     }, { signal });
 

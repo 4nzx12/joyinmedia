@@ -3,6 +3,7 @@ export const logo = 'https://res.cloudinary.com/syfbjskp/image/upload/v178869591
 
 export const projects = [
   {
+    "id": "onam",
     "type": "video",
     "title": "Onam",
     "category": "Festival Content",
@@ -10,6 +11,7 @@ export const projects = [
     "accent": "#ff8c42"
   },
   {
+    "id": "chai-girl",
     "type": "video",
     "title": "Chai Girl",
     "category": "Brand Presentation",
@@ -17,6 +19,7 @@ export const projects = [
     "accent": "#ff6b00"
   },
   {
+    "id": "boy-and-friend",
     "type": "video",
     "title": "Boy and Friend",
     "category": "Social Content",
@@ -24,6 +27,7 @@ export const projects = [
     "accent": "#ff8c42"
   },
   {
+    "id": "disabled",
     "type": "video",
     "title": "Disabled",
     "category": "Social Awareness",
@@ -31,6 +35,7 @@ export const projects = [
     "accent": "#ff6b00"
   },
   {
+    "id": "aabis-chai",
     "type": "video",
     "title": "Aabis Chai",
     "category": "Brand Content",
@@ -38,6 +43,7 @@ export const projects = [
     "accent": "#ff8c42"
   },
   {
+    "id": "troll-video",
     "type": "video",
     "title": "Troll Video",
     "category": "Comedy Edit",
@@ -45,6 +51,7 @@ export const projects = [
     "accent": "#ff6b00"
   },
   {
+    "id": "making-video",
     "type": "video",
     "title": "Making Video",
     "category": "Behind the Scenes",
@@ -52,6 +59,18 @@ export const projects = [
     "accent": "#ff8c42"
   }
 ];
+
+// The first video in each collection is its cover.
+// Add project IDs here to organize new videos without duplicating media URLs.
+export const videoCategories = [
+  { id: 'presentation', label: 'Presentation', description: 'Put your brand in the spotlight.', videoIds: ['chai-girl', 'aabis-chai'] },
+  { id: 'preparation', label: 'Preparation', description: 'A closer look at how it all comes together.', videoIds: ['making-video'] },
+  { id: 'story-skits', label: 'Story Skits', description: 'Little stories. Lasting impressions.', videoIds: ['disabled', 'boy-and-friend', 'troll-video'] },
+  { id: 'fast-cuts', label: 'Fast Cuts', description: 'Quick edits. Big energy.', videoIds: ['onam'] },
+].map(({ videoIds, ...category }) => {
+  const videos = videoIds.map(id => projects.find(project => project.id === id));
+  return { ...category, videos, coverVideo: videos[0].src };
+});
 
 export const clientStories = [
   {
@@ -168,6 +187,26 @@ export const trustedBrands = [
     "name": "LAVISH",
     "src": "https://res.cloudinary.com/syfbjskp/image/upload/v1788694833/lavish.png",
     "wide": false
+  },
+  {
+    "name": "Lakmé Academy",
+    "src": "https://res.cloudinary.com/dib15sbq/image/upload/v1794903513/lskme.png",
+    "wide": false
+  },
+  {
+    "name": "Perfect TVS",
+    "src": "https://res.cloudinary.com/dib15sbq/image/upload/v1794903513/Analysis_output_1.png",
+    "wide": false
+  },
+  {
+    "name": "Thaff",
+    "src": "https://res.cloudinary.com/dib15sbq/image/upload/v1794903512/thaff_white_transparent_clean.png",
+    "wide": false
+  },
+  {
+    "name": "Kazi Kitchen",
+    "src": "https://res.cloudinary.com/dib15sbq/image/upload/v1794902973/kazi_kitchen.png",
+    "wide": false
   }
 ];
 
@@ -179,8 +218,8 @@ export const contact = {
 };
 
 export const backgrounds = {
-  light: 'https://res.cloudinary.com/syfbjskp/video/upload/v1788697354/bg_vid_light.mp4',
-  dark: 'https://res.cloudinary.com/syfbjskp/video/upload/v1788697349/bg_vid_dark.mp4',
+  light: 'https://res.cloudinary.com/pxbzulmb/video/upload/v1795073770/video_bg_white.mp4',
+  dark: 'https://res.cloudinary.com/pxbzulmb/video/upload/v1795073761/video_bg.mp4',
 };
 
 export function videoPoster(src, width = 560) {

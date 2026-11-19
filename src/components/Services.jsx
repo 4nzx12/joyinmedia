@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { packages } from '../data/packages.js';
 import { Button } from './ui/button.jsx';
 import Icon from './Icon.jsx';
+import VideoBackground from './VideoBackground.jsx';
 const capabilities = [
   ['01.', 'Business Strategy & Consulting', 'Business audits, competitor research, growth planning and expansion strategies.'],
   ['02.', 'Brand & Marketing Growth', 'Branding, content creation, social media, paid advertising and customer acquisition.'],
@@ -9,9 +10,10 @@ const capabilities = [
   ['04.', 'Operations & Management', 'Business workflows, process improvements, productivity and management systems.'],
   ['05.', 'Technology & Digital Transformation', 'Websites, automation, AI workflows, software integrations and analytics.'],
 ];
-export default function Services() {
+export default function Services({ theme }) {
   const [openId, setOpenId] = useState(null);
-  return <section className="services-section" id="services">
+  return <section className="services-section ambient-section" id="services">
+    <VideoBackground theme={theme} blurred />
     <div className="section-heading"><div><div className="section-label">02 / What we bring</div><h2 className="section-title">Big ideas.<br /><em>Every little detail.</em></h2></div><p>One creative partner.<br />Everything your brand needs to move forward.</p></div>
     <div className="capabilities">{capabilities.map(([number, title, description]) => <div className="capability" key={number}><span>{number}</span><h3>{title}</h3><p>{description}</p><Icon name="arrow-up-right" className="capability-icon" /></div>)}</div>
     <div className="packages-heading"><h3>A starting point for every ambition.</h3><span>Find your fit <Icon name="arrow-down" className="packages-fit-icon" /></span></div>

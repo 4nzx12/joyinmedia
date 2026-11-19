@@ -1,12 +1,24 @@
-import { logo } from '../data/content.js';
 import Icon from './Icon.jsx';
-import { LiquidButton } from './ui/liquid-glass-button.jsx';
+import './Navbar.css';
+
+const destinations = [
+  { label: 'Home', href: '#home', icon: 'home' },
+  { label: 'Work', href: '#featured-work', icon: 'camera' },
+  { label: 'Services', href: '#services', icon: 'briefcase' },
+  { label: 'Results', href: '#faq', icon: 'chart' },
+  { label: 'Contact', href: '#contact', icon: 'message' },
+];
+
 export default function Navbar({ theme, onToggleTheme }) {
-  return <nav className="navbar" id="navbar" aria-label="Main navigation">
-    <a href="#top" className="nav-logo" aria-label="Joyin Media — home"><img src={logo} alt="Joyin Media" width="120" height="46" /></a>
-    <div className="nav-links"><a href="#featured-work" className="nav-link">Work</a><a href="#services" className="nav-link">Services</a><a href="#faq" className="nav-link">Results</a></div>
-    <div className="nav-actions"><button className="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed={theme === 'dark'} onClick={onToggleTheme}><Icon name={theme === 'dark' ? 'sun' : 'moon'} /></button>
-      <LiquidButton asChild size="sm"><a href="#contact">Let’s talk <Icon name="arrow-up-right" /></a></LiquidButton>
-    </div>
+  return <nav className="navbar icon-navbar" id="navbar" aria-label="Main navigation">
+    {destinations.map(({ label, href, icon }) => <a key={href} href={href} className="nav-link nav-item" aria-label={label}>
+      <Icon name={icon} />
+      <span className="nav-tooltip" aria-hidden="true">{label}</span>
+    </a>)}
+    <span className="nav-separator" aria-hidden="true" />
+    <button className="theme-toggle nav-item" type="button" aria-label="Toggle dark mode" aria-pressed={theme === 'dark'} onClick={onToggleTheme}>
+      <span key={theme} className="nav-theme-icon"><Icon name={theme === 'dark' ? 'sun' : 'moon'} /></span>
+      <span className="nav-tooltip" aria-hidden="true">{theme === 'dark' ? 'Light mode' : 'Dark mode'}</span>
+    </button>
   </nav>;
 }

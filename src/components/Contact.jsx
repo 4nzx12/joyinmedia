@@ -4,6 +4,7 @@ import { buildContactUrl, validateEnquiry } from '../lib/contact.js';
 import Icon from './Icon.jsx';
 import { Button } from './ui/button.jsx';
 import { MetalButton } from './ui/metal-button.jsx';
+import VideoBackground from './VideoBackground.jsx';
 
 const fields = [
   { name: 'name', label: 'Name', type: 'text', placeholder: 'Your name', autoComplete: 'name' },
@@ -17,7 +18,7 @@ const channels = [
   { label: 'Office', icon: 'map', href: contact.office, text: 'Pachalam, Kochi' },
 ];
 
-export default function Contact() {
+export default function Contact({ theme }) {
   const [values, setValues] = useState({ name: '', phone: '', message: '' });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('');
@@ -41,7 +42,8 @@ export default function Contact() {
   }
 
   return (
-    <section className="contact-section fade-in" id="contact">
+    <section className="contact-section ambient-section fade-in" id="contact">
+      <VideoBackground theme={theme} blurred />
       <div className="section-label">06 / Your next chapter</div>
       <h2 className="section-title">Get in touch</h2>
       <p className="contact-intro">An idea, a challenge, or a coffee. We’re all ears.</p>

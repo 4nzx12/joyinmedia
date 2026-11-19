@@ -1,5 +1,11 @@
 // Small inline icons replace the external Font Awesome stylesheet and fonts.
 const paths = {
+  play: <path d="m9 5 11 7-11 7V5Z" fill="currentColor" stroke="none" />,
+  home: <><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10Z" /><path d="M9 21v-8h6v8" /></>,
+  camera: <><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3Z" /><circle cx="12" cy="13" r="4" /></>,
+  briefcase: <><rect x="3" y="7" width="18" height="14" rx="2" /><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12a20 20 0 0 0 18 0M12 11v4" /></>,
+  chart: <><path d="M4 3v17h17M8 15l5-5 4 3 4-7M17 6h4v4" /></>,
+  message: <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z" />,
   'arrow-up-right': <path d="M7 17 17 7M7 7h10v10" />,
   'arrow-down': <path d="M12 3v18m-7-7 7 7 7-7" />,
   'arrow-left': <path d="M19 12H5m7 7-7-7 7-7" />,

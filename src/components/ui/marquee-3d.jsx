@@ -13,15 +13,14 @@ const suppliedPosters = [
 const posterOrders = [
   [0, 3, 6, 1, 4, 7, 2, 5],
   [2, 5, 0, 7, 3, 6, 1, 4],
-  [4, 1, 7, 2, 5, 0, 6, 3],
 ];
-const posterColumns = posterOrders.map(order => order.map(index => suppliedPosters[index]));
+const posterRows = posterOrders.map(order => order.map(index => suppliedPosters[index]));
 
 export function Marquee3D() {
   return <div className="marquee-3d" aria-hidden="true">
     <div className="marquee-3d-plane">
-      {posterColumns.map((column, index) => <Marquee key={index} vertical reverse={index === 1} pauseOnHover={false} style={{ '--duration': `${34 + index * 5}s`, '--gap': '14px' }}>
-        {column.map(src => <figure className="film-frame" key={src}>
+      {posterRows.map((row, index) => <Marquee key={index} reverse={index === 1} pauseOnHover={false} style={{ '--duration': `${34 + index * 5}s`, '--gap': '14px' }}>
+        {row.map(src => <figure className="film-frame" key={src}>
           <img src={src} alt="" width="180" height="260" loading="lazy" decoding="async" />
         </figure>)}
       </Marquee>)}

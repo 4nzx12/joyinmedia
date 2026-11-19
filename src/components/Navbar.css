@@ -1,0 +1,98 @@
+/* A compact, fixed icon dock. Its appearance stays steady while scrolling. */
+.navbar.icon-navbar,
+.navbar.icon-navbar.is-scrolled {
+  position: fixed;
+  inset: calc(18px + env(safe-area-inset-top, 0px)) auto auto 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100vw - 24px);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 5px 8px;
+  border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--bg-2) 92%, transparent);
+  box-shadow: 0 2px 5px #00000008;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  animation: navDockArrive 600ms var(--ease-out) both;
+}
+
+.icon-navbar .nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 11px;
+  background: transparent;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 220ms ease, background 220ms ease;
+}
+
+.icon-navbar .nav-item .icon {
+  width: 19px;
+  height: 19px;
+  transition: transform 350ms var(--ease-out);
+}
+
+.icon-navbar .nav-item.is-current,
+.icon-navbar .nav-item:focus-visible {
+  color: var(--text);
+  background: var(--soft);
+}
+
+/* Filled keyboard focus and a label replace the outline around nav controls. */
+.icon-navbar .nav-item:focus { outline: none; box-shadow: none; }
+[data-anchor-target]:focus { outline: none; }
+
+.icon-navbar .nav-item:active .icon { transform: scale(.88); }
+.icon-navbar .nav-separator { flex: 0 0 1px; height: 20px; margin-inline: 4px; background: var(--border); }
+.icon-navbar .nav-theme-icon { display: flex; animation: navThemeArrive 350ms var(--ease-out) both; }
+.icon-navbar .nav-tooltip {
+  position: absolute;
+  top: calc(100% + 17px);
+  left: 50%;
+  transform: translate(-50%, -4px);
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--text);
+  color: var(--bg);
+  font: 11px/1.4 Arial, sans-serif;
+  letter-spacing: .01em;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 250ms var(--ease-out), visibility 180ms;
+}
+.icon-navbar .nav-item:focus-visible .nav-tooltip { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+
+@media (hover: hover) and (pointer: fine) {
+  .icon-navbar .nav-item:hover { color: var(--text); background: var(--soft); }
+  .icon-navbar .nav-item:hover .icon { transform: translateY(-2px) scale(1.08); }
+  .icon-navbar .nav-item:hover .nav-tooltip { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+}
+@keyframes navDockArrive { from { opacity: 0; translate: 0 -10px; } to { opacity: 1; translate: 0 0; } }
+@keyframes navThemeArrive { from { opacity: 0; transform: rotate(-35deg) scale(.7); } to { opacity: 1; transform: rotate(0) scale(1); } }
+
+@media (max-width: 580px) {
+  .navbar.icon-navbar,
+  .navbar.icon-navbar.is-scrolled { top: calc(12px + env(safe-area-inset-top, 0px)); gap: 2px; padding: 4px 6px; border-radius: 16px; }
+  .icon-navbar .nav-item { flex-basis: 34px; width: 34px; height: 36px; border-radius: 10px; }
+  .icon-navbar .nav-item .icon { width: 18px; height: 18px; }
+  .icon-navbar .nav-separator { margin-inline: 3px; height: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .navbar.icon-navbar, .icon-navbar .nav-theme-icon { animation: none; }
+  .icon-navbar .nav-item .icon, .icon-navbar .nav-tooltip { transition: none; }
+  .icon-navbar .nav-item:hover .icon, .icon-navbar .nav-item:active .icon { transform: none; }
+}
