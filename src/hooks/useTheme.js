@@ -8,6 +8,7 @@ export default function useTheme() {
       let saved;
       try { saved = localStorage.getItem('jm-theme'); } catch { /* Storage is optional. */ }
       const next = saved === 'dark' ? 'dark' : 'light';
+      if (document.documentElement.dataset.theme !== next) window.dispatchEvent(new Event('jm:before-theme-change'));
       document.documentElement.dataset.theme = next;
       setTheme(next);
     };
@@ -20,6 +21,7 @@ export default function useTheme() {
 
   function toggleTheme() {
     const next = theme === 'dark' ? 'light' : 'dark';
+    window.dispatchEvent(new Event('jm:before-theme-change'));
     document.documentElement.dataset.theme = next;
     try { localStorage.setItem('jm-theme', next); } catch { /* Keep the in-memory preference. */ }
     setTheme(next);

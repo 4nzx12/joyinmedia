@@ -218,8 +218,8 @@ export const contact = {
 };
 
 export const backgrounds = {
-  light: 'https://res.cloudinary.com/pxbzulmb/video/upload/v1795073770/video_bg_white.mp4',
-  dark: 'https://res.cloudinary.com/pxbzulmb/video/upload/v1795073761/video_bg.mp4',
+  light: 'https://res.cloudinary.com/pxbzulmb/video/upload/v1795076334/video_bg_white_VSRExport_1.mp4',
+  dark: 'https://res.cloudinary.com/pxbzulmb/video/upload/v1795076458/video_bg_VSRExport.mp4',
 };
 
 export function videoPoster(src, width = 560) {

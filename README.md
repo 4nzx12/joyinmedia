@@ -26,7 +26,7 @@ npm run build
 npm run preview
 ```
 
-Pushing to `main` runs `.github/workflows/static.yml`, which builds the site and publishes `dist/` to GitHub Pages. For other static hosts, upload the contents of `dist/`. The build generates optimized JS/CSS and pre-renders the React page into `dist/index.html`; React hydrates it in the browser. No production Node server or SPA rewrite rules are needed for the existing hash-based navigation. `public/robots.txt` and `public/sitemap.xml` are copied into the build.
+Pushing to `main` runs `.github/workflows/static.yml`, which builds the site and publishes `dist/` to GitHub Pages. For other static hosts, upload the contents of `dist/`. The build generates optimized JS/CSS and pre-renders the React page into `dist/index.html`; React hydrates it in the browser. The paired page-background videos are optimized local variants in `public/media` of the Cloudinary originals in `src/data/content.js`. No production Node server or SPA rewrite rules are needed for the existing hash-based navigation. `public/robots.txt` and `public/sitemap.xml` are copied into the build.
 
 Keep the canonical URL and sitemap in sync if the production domain changes. Update the sitemap's `lastmod` when publishing a content change.
 

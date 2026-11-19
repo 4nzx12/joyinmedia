@@ -20,6 +20,7 @@ test('renders every section without hydration errors or horizontal overflow', as
     const style = getComputedStyle(element);
     return { lineHeight: parseFloat(style.lineHeight), fontSize: parseFloat(style.fontSize) };
   });
+
   expect(heroEmMetrics.lineHeight / heroEmMetrics.fontSize).toBeCloseTo(1.2);
   await expect(page.locator('.hero-art, .art-wordmark, .art-orbit')).toHaveCount(0);
   await expect(page.locator('.hero-copy')).toHaveCSS('text-align', 'center');
@@ -71,6 +72,25 @@ test('renders every section without hydration errors or horizontal overflow', as
   expect(themeBounds.x + themeBounds.width).toBeLessThanOrEqual(page.viewportSize().width);
   await page.screenshot({ path: testInfo.outputPath('home.png') });
   expect(errors).toEqual([]);
+});
+
+test('mobile layout uses compact controls and even section spacing without changing desktop', async ({ page }, testInfo) => {
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  const layout = await page.evaluate(() => {
+    const button = document.querySelector('.hero-cta .liquid-button');
+    const section = document.querySelector('.content > section');
+    return {
+      buttonHeight: parseFloat(getComputedStyle(button).minHeight),
+      buttonPaddingTop: parseFloat(getComputedStyle(button).paddingTop),
+      sectionPadding: parseFloat(getComputedStyle(section).paddingTop),
+    };
+  });
+
+  if (testInfo.project.name === 'mobile') {
+    expect(layout).toEqual({ buttonHeight: 44, buttonPaddingTop: 10, sectionPadding: 64 });
+  } else {
+    expect(layout).toEqual({ buttonHeight: 48, buttonPaddingTop: 13, sectionPadding: 110 });
+  }
 });
 
 test('theme persists, package details toggle, and testimonials switch', async ({ page }) => {
@@ -236,7 +256,7 @@ test('dragging the carousel advances without accidentally opening a category', a
 test('reduced motion stops marquees and automatic carousel movement', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/#featured-work', { waitUntil: 'domcontentloaded' });
-  await expect(page.locator('.video-bg')).toHaveCount(0);
+  await expect(page.locator('.video-bg[src]')).toHaveCount(0);
   await expect(page.locator('.cs-vid')).toHaveCount(0);
   await expect(page.locator('.cs-category-cover video')).toHaveCount(0);
   await expect(page.locator('.cs-category-cover img')).toHaveCount(4);
@@ -270,23 +290,24 @@ test('the video background fills the hero and keeps the foreground links usable'
 test('background videos follow the theme, defer offscreen loading and honor reduced motion', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.goto('/', { waitUntil: 'domcontentloaded' });
-  const heroVideo = page.locator('.hero-background video');
-  await expect(heroVideo).toHaveAttribute('src', /pxbzulmb\/video\/upload\/.*\/v1795073770\/video_bg_white\.mp4$/);
-  await expect(page.locator('.ambient-section video, .footer-background video')).toHaveCount(0);
+  const heroVideo = page.locator('.hero-background video[data-video-theme="light"]');
+  const darkVideo = page.locator('.hero-background video[data-video-theme="dark"]');
+  await expect(heroVideo).toHaveAttribute('src', /background-light-v1-(960|1440)\.mp4$/);
+  await expect(page.locator('.ambient-section video[src], .footer-background video[src]')).toHaveCount(0);
   await page.getByRole('button', { name: 'Toggle dark mode' }).click();
-  await expect(heroVideo).toHaveAttribute('src', /v1795073761\/video_bg\.mp4$/);
-  await expect(page.locator('.hero-background .video-poster')).toHaveAttribute('src', /v1795073761\/video_bg\.jpg$/);
+  await expect(darkVideo).toHaveAttribute('src', /background-dark-v1-(960|1440)\.mp4$/);
+  await expect(page.locator('.hero-background .video-poster--dark')).toHaveCSS('opacity', '1');
   await page.reload({ waitUntil: 'domcontentloaded' });
-  await expect(heroVideo).toHaveAttribute('src', /v1795073761\/video_bg\.mp4$/);
+  await expect(darkVideo).toHaveAttribute('src', /background-dark-v1-(960|1440)\.mp4$/);
   await page.locator('#services').scrollIntoViewIfNeeded();
-  await expect(page.locator('#services .video-bg')).toHaveAttribute('src', /v1795073761\/video_bg\.mp4$/);
+  await expect(page.locator('#services .video-bg[data-video-theme="dark"]')).toHaveAttribute('src', /background-dark-v1-(960|1440)\.mp4$/);
   await expect.poll(() => heroVideo.evaluate(video => video.paused)).toBe(true);
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await expect(page.locator('.background-media video')).toHaveCount(0);
-  await expect(page.locator('#services .video-poster')).toBeVisible();
+  await expect(page.locator('.background-media video[src]')).toHaveCount(0);
+  await expect(page.locator('#services .video-poster--dark')).toBeVisible();
   await expect(page.locator('#featured-work .background-media, #process .background-media, #faq .background-media')).toHaveCount(0);
   for (const id of ['services', 'contact']) {
-    const poster = page.locator(`#${id} .video-poster`);
+    const poster = page.locator(`#${id} .video-poster--dark`);
     expect(await poster.evaluate(element => getComputedStyle(element).filter)).toMatch(/blur\((20|28)px\)/);
     await expect(page.locator(`#${id}`)).toHaveCSS('filter', 'none');
   }
@@ -294,8 +315,8 @@ test('background videos follow the theme, defer offscreen loading and honor redu
 
 test('the hero stays readable when the background video cannot load', async ({ page }) => {
   await page.goto('/', { waitUntil: 'domcontentloaded' });
-  await expect(page.locator('.hero-background .video-bg')).toHaveCSS('opacity', '0');
-  await expect(page.locator('.hero-background .video-poster')).toBeVisible();
+  await expect(page.locator('.hero-background .video-bg').first()).toHaveCSS('opacity', '0');
+  await expect(page.locator('.hero-background .video-poster--light')).toBeVisible();
   expect(await page.locator('.hero-background').evaluate(element => getComputedStyle(element).backgroundImage)).toContain('radial-gradient');
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   await page.getByRole('button', { name: 'Toggle dark mode' }).click();

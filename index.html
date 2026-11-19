@@ -50,6 +50,31 @@
 </head>
 <body id="top">
   <div id="root"></div>
+  <script>
+    // Start the pre-rendered hero before parsing React, which adopts these players.
+    (() => {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches || navigator.connection?.saveData) return;
+      const players = [...document.querySelectorAll('.hero-background .video-bg')];
+      const current = players.find(video => video.dataset.videoTheme === document.documentElement.dataset.theme);
+      if (!current) return;
+      const controller = new AbortController();
+      window.__stopHeroVideoBootstrap = () => controller.abort();
+      const load = video => {
+        video.muted = true;
+        video.src = matchMedia('(max-width: 767px)').matches ? video.dataset.srcMobile : video.dataset.srcDesktop;
+      };
+      current.addEventListener('loadeddata', () => {
+        current.dataset.active = 'true';
+        players.filter(video => video !== current).forEach(load);
+      }, { once: true, signal: controller.signal });
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) current.pause();
+        else current.play().catch(() => {});
+      }, { signal: controller.signal });
+      load(current);
+      if (!document.hidden) current.play().catch(() => {});
+    })();
+  </script>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
